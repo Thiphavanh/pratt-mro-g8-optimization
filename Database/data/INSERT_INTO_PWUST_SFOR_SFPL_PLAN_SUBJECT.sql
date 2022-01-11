@@ -1,0 +1,3 @@
+insert into pwust_sfor_sfpl_plan_subject  (plan_id,plan_updt_no,subject_no,subject_rev,last_action,obsolete_record_flag) 
+select plan_id,plan_updt_no,subject_no,subject_rev,last_action,obsolete_record_flag from SFOR_SFPL_PLAN_SUBJECT b where b.plan_id not in (select c.plan_id from PWUST_SFOR_SFPL_PLAN_SUBJECT c where  c.plan_id = b.plan_id and c.subject_no = b.subject_no and c.subject_rev = b.subject_rev);
+commit;

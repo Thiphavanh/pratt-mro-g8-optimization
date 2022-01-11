@@ -1,0 +1,2 @@
+--Defect 135
+alter table PWUST_PL_SUBJ_WORKSCOPE modify WORKSCOPE VARCHAR2(10);

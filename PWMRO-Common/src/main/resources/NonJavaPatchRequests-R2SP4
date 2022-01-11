@@ -1,0 +1,234 @@
+Please copy and paste the sample and add it to the bottom
+of this file with your non java patch requests.
+
+- DER:  					 G8R2SP4 Upgrade 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_R2SP4_Upgrade_20190308
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 G8R2SP4 Upgrade
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect1159_20190404
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 1159 - Fixed SG issue with Parts Dispatch.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect1159_20190411
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 1159 - Fixed SG issue with Tool Dispatch.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_USR_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_203_Defect1219_20190415
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Adds priv for Close hold
+- Production Fix: 			 No
+- Author                     Thien-Long Phan
+
+- DER:  					 SMRO_USR_202
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_202_Defect1183_20190417
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Adds priv PLAN_PLG_AUTHORING
+- Production Fix: 			 No
+- Author                     Thien-Long Phan
+
+- DER:  					 SMRO_PLG_311
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_PLG_311_Defect1247_20190425
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Change char length of Authority Type to 40
+- Production Fix: 			 No
+- Author                     Thien-Long Phan
+
+- DER:  					 SMRO_WOE_202
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_202_Defect1226_20190503
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Re-release missing UDV.
+- Production Fix: 			 No
+- Author                     Bob Preston
+
+- DER:  					 SRMO_USR_203 Defect 1218
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MENU_R2SP4HF3_Upgrade_SODMRO2_20190613
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 1218 - Assign PW_ORDER_OPER_INC and PW_ORDER_TASK_INC privs to SF$SUPERUSER role
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_20190711
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Fix Defect 1125 for DXC-R2SP4 branch
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_eWORK_202 Defect 1127
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect1127_20200116
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Replace order_no with pw_order_no in Work Order Operations - In Queue and Active
+- Production Fix: 			 No
+- Author                     T. Phan
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_20190711
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Fix Defect 1125 for DXC-R2SP4 branch (for QT)
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_20190711
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Correcting GitHub for DXC-R2SP4 branch (for QT). Accidently put SQLID under UDV. SQLID already exist and current.
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_eWORK_202 Defect 1394, 1397, 1398
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defects139(4-7-8)20200117
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Replace order_no with pw_order_no in 3 different dispatches
+- Production Fix: 			 No
+- Author                     T. Phan
+
+- DER: SMRO_USR_206				 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_206_UserLoadProc_20200211
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Added code for badge_id load and improve performance for role assignment
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_R2_20200210
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Re-Package Defect 1125 for DXC-R2SP4 branch (for QT)
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect_954_20200212
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 fixed sql lib for standard text look up 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_USR_205 Defect 1040
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_205_Defect1040_20200228
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fix drop-down for Req'd Cert when embedding Buyoffs and related Java error for Overhaul in DXC-R2SP4 Repair branch (for QT)
+- Production Fix: 			 Yes
+- Author                     B. Corson
+
+- DER:  					 SMRO_WOE_206
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_206_Defect_1568_20200228
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fixed sql_lib for data collections tab in orders
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Repair_Planning_Upgrade_INILIB_20200312
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 merged ini lib
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MENU_SMRO_PLG_310_Defect_1230_20200306
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 merged meunu sql file
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1711_20200630
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 changed oob sql lib to exclude serial status of "Cancel" when re opening closed operation  
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1720_20200706
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Changed buyoff UDV to display user name  column 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1723_20200707
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 checked in missing UDV id  PWUST_8F610828CAD76EFBE05387971F0AC29E
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1724_20200808
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Changed sql lib to exclude serial status of cancel for buyoff status comments UDV
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1711_20200811
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Changed sql lib to exclude serial status of cancel for oper re open UDV
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1753_20200812
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Changed udv script so that buyoff NA/ND and partial buyoff can not be mixed in a buyoff grid 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1711_20200812
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Changed sql lib for reopen oper so that it serial no that are stopped will not be dispalyed   
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1964_20210816
+- DDL change?:				 yes
+- INI update?:				 No
+- Description:  			 Added sequence for defect 1964   
+- Production Fix: 			 No
+- Author                     Brendan Polak
+
+- DER:  					 NA
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_2016_20211108
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Resurface Sign On button  
+- Production Fix: 			 No
+- Author                     Fred Etteagh

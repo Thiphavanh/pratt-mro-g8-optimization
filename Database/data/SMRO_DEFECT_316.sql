@@ -1,0 +1,36 @@
+insert into SFFND_DOC_TYPE_DEF
+  (DOC_TYPE,
+   DOC_SUB_TYPE,
+   WORK_FLOW,
+   INSTRUCTIONS_TYPE,
+   TASK_TYPE,
+   LAST_ACTION,
+   DESCRIPTION,
+   RESERVED_FLAG,
+   IS_VISIBLE,
+   OBSOLETE_RECORD_FLAG,
+   NUM_GEN_NAME,
+   IS_DEFAULT,
+   WORK_FLOW_DESC,
+   SETUP_STATUS,
+   GEN_TASK_PROC,
+   COMP_TASK_PROC)
+values
+  ('Process Plan',
+   'STDOPER',
+   'STD_OPER_AUTH',
+   'N/A',
+   'MMOBJ_STDOPER_AUTH',
+   'INSERTED',
+   'Process Plan',
+   'Y',
+   'Y',
+   'N',
+   'PLAN_NO_GEN',
+   'Y',
+   'Authoring in Process Planning',
+   'COMPLETE',
+   'com.ibaset.solumina.task.sfpl.PlanTaskHandler',
+   'com.ibaset.solumina.task.sfpl.PlanTaskHandler');
+
+commit;

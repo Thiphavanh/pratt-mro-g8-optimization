@@ -1,0 +1,2 @@
+delete from sfcore_udv_folder where folder_id = 'PWUST_550FF0D87F4141A0E05387971F0AD3EA' and udv_id ='PWUSD_A00B82EA1DBB5900E05387971F0AB603';
+delete from sfcore_udv_lib where udv_id ='PWUSD_A00B82EA1DBB5900E05387971F0AB603';

@@ -1,0 +1,53 @@
+-- Create table
+create table PWUE_GENERAL_LOOKUP
+(
+  DATA_FIELD   VARCHAR2(50) not null,
+  DATA_VALUE   VARCHAR2(50) not null,
+  DATA_DESC    VARCHAR2(150) not null,
+  UPDT_USERID  VARCHAR2(30) default user,
+  TIME_STAMP   DATE default sysdate,
+  DATA_VALUE_1 VARCHAR2(150)
+)
+tablespace SFUPGRADE
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table PWUE_GENERAL_LOOKUP
+  add constraint PWUE_GENERAL_LOOKUP_PK primary key (DATA_FIELD, DATA_VALUE, DATA_DESC)
+  using index 
+  tablespace SFUPGRADE
+  pctfree 10
+  initrans 50
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index PWUE_GENERAL_LOOKUP_IDX1 on PWUE_GENERAL_LOOKUP (DATA_FIELD, DATA_VALUE)
+  tablespace SFUPGRADE
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  compress;
+grant select, insert, update, delete on SFMFG.PWUE_GENERAL_LOOKUP to C2USER;
+grant select on SFMFG.PWUE_GENERAL_LOOKUP to PRATT_READ_ONLY;
+grant select, insert, update, delete on SFMFG.PWUE_GENERAL_LOOKUP to SF$CONNECTION_POOL;

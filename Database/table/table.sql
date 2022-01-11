@@ -1,0 +1,11 @@
+@ddl/table/UTASGE_PLG_PAAR_DESC.sql;
+@ddl/table/UTASGE_PLG_PAAR_PMN_AUTH.sql;
+@ddl/table/UTASGE_WID_PAAR_DESC.sql;
+@ddl/table/UTASGE_WID_PAAR_PMN_AUTH.sql;
+@ddl/table/UTASGI_PLG_PAAR_DESC.sql;
+@ddl/table/UTASGI_PLG_PAAR_PMN_AUTH.sql;
+@ddl/table/UTASGI_PLG_PAAR_PMN_SGHT.sql;
+@ddl/table/UTASgi_user_sec_grp_xref.sql;
+@ddl/table/UTASgi_wid_paar_desc.sql;
+@ddl/table/UTASgi_wid_paar_pmn_auth.sql;
+@ddl/table/UTASgi_wid_paar_pmn_sght.sql;

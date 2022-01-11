@@ -1,0 +1,2257 @@
+menu
+ Process_Planning
+  MenuItem
+   Caption=Release Packages - All
+   Item=Release Packages - All
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=                                  
+   Params=
+   FKey=                              
+  MenuItem
+   Caption=Process Planning Tasks - In Queue and Active
+   Item=Process Planning Tasks - In Queue and Active
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Alteration Tasks - In Process
+   Item=Work Order Alteration Tasks - In Process
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Bills of Material
+   Item=Bills of Material
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Parts
+   Item=Parts
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Tools
+   Item=Tools
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_TOOL') AND @HasPriv('TOOL_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Procedures
+   Item=Procedures
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Machines
+   Item=Machines
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Library - Files
+   Item=Library - Files
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('PWUST_STD_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Library - Standard Operation
+   Item=Library - Standard Operation
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Library - Standard Text
+   Item=Library - Standard Text
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Library - Illustrations
+   Item=Library - Illustrations
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('PWUST_STD_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Library - Standard Data Collections
+   Item=Library - Standard Data Collections
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('PWUST_STD_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Compare Work Plan Revisions
+   Item=Compare Work Plan Revisions
+   List=
+   Tool=
+   Priv=DISPATCH_ALL
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_C97431E5031A41FCB6B61F8DA62E15D5,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Data Collection Variables
+   Item=Data Collection Variables
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DATCOL_VARIABLE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Changes - In Process
+   Item=Changes - In Process
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('CHANGE_REQUEST_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Release Planning
+   Item=Release Planning
+   List=DefinableData.ReleasePlanning
+   Tool=Tools
+   Priv=@HasPriv('DISPATCH_ALL')  AND @HasPriv('CHANGE_REQUEST_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Part Status
+   Item=Part Status
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_ALL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Planner Supervisor Home Page
+   Item=Planner Supervisor
+   List=DefinableData.PlannerSupervisor
+   Tool=Tools
+   Priv=@HasPriv('PLANNER_SUPERVISOR')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Planner Home Page
+   Item=Planner
+   List=DefinableData.Planner
+   Tool=Tools
+   Priv=@HasPriv('PLANNER_HOMEPAGE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=PAAR Requests
+   Item=PAAR Requests
+   List=Process Planning
+   Tool=Dispatch
+   Priv=DISPATCH_PRPLG
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Standard Network
+   Item=Standard Network
+   List=Process Planning
+   Tool=Dispatch
+   Priv=
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Create Plan Item No
+   Item=Create Plan Item No
+   List=
+   Tool=
+   Priv=@HasPriv('PW_PLAN_ITEM_NO')
+   Command=CommandEvent(ExecTransaction(@Udv_Id=PWUST_57973BB56FEFE826E05387971F0A4AF3,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manuals
+   Item=Manuals
+   List=Process Planning
+   Tool=Dispatch
+   Priv=PW_MANUALS_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manual Providers
+   Item=Manual Providers
+   List=Process Planning
+   Tool=Dispatch
+   Priv=PW_MANUALS_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manual Types
+   Item=Manual Types
+   List=Process Planning
+   Tool=Dispatch
+   Priv=PW_MANUALS_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Authority Types
+   Item=Authority Types
+   List=Process Planning
+   Tool=Dispatch
+   Priv=PW_MANUALS_VIEW
+   Command=
+   Params=
+   FKey=
+ Inspection_Planning
+  MenuItem
+   Caption=Release Packages - All
+   Item=Release Packages - All
+   List=
+   Tool=
+   Priv=DISPATCH_PRPLG
+   Command=CommandEvent(ExecTransaction(@Udv_Id=PWUST_57973BB56FEFE826E05387971F0A4AF3,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Planning Tasks - In Queue and Active
+   Item=Inspection Planning Tasks - In Queue and Active
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Suppliers
+   Item=Suppliers
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSPPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Test Inspection Orders
+   Item=Test Inspection Orders
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSPPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Bills of Material
+   Item=Bills of Material
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Tools
+   Item=Tools
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Library - Standard Data Collections
+   Item=Library - Standard Data Collections
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Changes - In Process
+   Item=Changes - In Process
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('CHANGE_REQUEST_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Release Planning
+   Item=Release Planning
+   List=DefinableData.ReleasePlanning
+   Tool=Tools
+   Priv=@HasPriv('DISPATCH_ALL')  AND @HasPriv('CHANGE_REQUEST_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Part Status
+   Item=Part Status
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_ALL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Requirement Groups
+   Item=Requirement Groups
+   List=Inspection Planning
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSPPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Create Plan Item No
+   Item=Create Plan Item No
+   List=Process Planning
+   Tool=Dispatch
+   Priv=@HasPriv('PW_PLAN_ITEM_NO')
+   Command=
+   Params=
+   FKey=
+ Audit
+  MenuItem
+   Caption=Audit Processes
+   Item=Audit Processes
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Planning Tasks - In Queue and Active
+   Item=Audit Planning Tasks - In Queue and Active
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Planning Tasks - Complete
+   Item=Audit Planning Tasks - Complete
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audits - Pending
+   Item=Audits - Pending
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Execution Tasks - In Queue and Active
+   Item=Audit Execution Tasks - In Queue and Active
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Findings - In Process and Complete
+   Item=Audit Findings - In Process and Complete
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Corrective Actions - In Process
+   Item=Audit Corrective Actions - In Process
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Corrective Action Items - In Process
+   Item=Audit Corrective Action Items - In Process
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Audit Results
+   Item=Audit Results
+   List=Audits
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Create Audit
+   Item=Create Audit
+   List=
+   Tool=
+   Priv=AUDIT_ORDER_CREATE
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_8D839C22BE2541AD8B58E88CDAC787C9,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Auditor Portal
+   Item=Auditor Portal
+   List=
+   Tool=
+   Priv=DISPATCH_AUDIT
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_06AB2A5C2C924CFFB1DDD4E820697BBE,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+ Production_Control
+  MenuItem
+   Caption=Work Plan/Work Order Release Control
+   Item=Work Plan/Work Order Release Control
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Create
+   Item=Work Order Create
+   List=
+   Tool=
+   Priv=ORDER_CREATE
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_76762C69469631E5E04400144FA7B7D2,@SQLTransaction=INSERT,@Tag=CREATE_WO_FROM_MENU))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Requests
+   Item=Work Order Requests
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('ORDER_REQUEST_CREATE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Center Management - WO Operations - In Queue and Active
+   Item=Work Center Management - WO Operations - In Queue and Active
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order - Request Part Issue
+   Item=Work Order - Request Part Issue
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order - Issue Parts
+   Item=Work Order - Issue Parts
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('INVENTORY_CONTROL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations - Out of Control
+   Item=Work Order Operations - Out of Control
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Part Shortage by Work Order
+   Item=Part Shortage by Work Order
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Part Shortage by Part
+   Item=Part Shortage by Part
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Delivery Package
+   Item=Delivery Package
+   List=DefinableData.DeliveryPackage
+   Tool=Tools
+   Priv=@HasPriv('DISPATCH_ALL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Units - Completed, Stopped, Scrapped
+   Item=Units - Completed, Stopped, Scrapped
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Issued Tool Status
+   Item=Issued Tool Status
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFGSUP')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Management Reports
+   Item=Management Reports
+   List=
+   Tool=
+   Priv=DISPATCH_MFG
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_7E158969AD3A46D3E04400144FA7B7D2,@SQLTransaction=Update))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Data Collection Variables
+   Item=Data Collection Variables
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DATCOL_VARIABLE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=External Data Collections
+   Item=External Data Collections
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Assistance Requests - Part Delay, Tool Delay, & Help Hold
+   Item=Assistance Requests - Part Delay, Tool Delay, & Help Hold
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('ORDER_HOLD_CREATE') AND @HasPriv('ORDER_HOLD_CLOSE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations - Open Over Inspection Holds
+   Item=Work Order Operations - Open Over Inspection Holds
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_OVERINSPECTION')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manufacturing Inspection Orders - In Queue and Active
+   Item=Manufacturing Inspection Orders - In Queue and Active
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Orders by End Unit
+   Item=Work Orders by End Unit
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations by End Unit
+   Item=Work Order Operations by End Unit
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=End Units
+   Item=End Units
+   List=Production Control
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=PAAR Requests
+   Item=PAAR Requests
+   List=Production Control
+   Tool=Dispatch
+   Priv=CAN_VIEW_ALL_PAAR_REQUESTS
+   Command=
+   Params=
+   FKey=
+ Operations
+  MenuItem
+   Caption=Work Packages - All
+   Item=Work Packages - All
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Center Operations - Group Jobs
+   Item=Work Center Operations - Group Jobs
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Center Production Activity
+   Item=@na
+   List=DefinableData.WorkCenProdAct
+   Tool=Tools
+   Priv=@HasPriv('DISPATCH_ALL') and @GetQueryValue(MFI_FND_MiGlobalParamGet)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations - User Work Center
+   Item=Work Order Operations - User Work Center
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations by Serial/Lot - User Work Center
+   Item=Work Order Operations by Serial/Lot - User Work Center
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations - In Queue and Active
+   Item=Work Order Operations - In Queue and Active
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Order Operations by Serial/Lot - In Queue and Active
+   Item=Work Order Operations by Serial/Lot - In Queue and Active
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Orders - In Queue and Active
+   Item=Work Orders - In Queue and Active
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Orders - Pending
+   Item=Work Orders - Pending
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Orders on Split Hold
+   Item=Work Orders on Split Hold
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Sign On/Off Activities
+   Item=Sign On/Off Activities
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('ORDER_SIGNON') and @GetQueryValue(MFI_FND_LtaEnabledFlag)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Sign On/Off Accounts
+   Item=Sign On/Off Accounts
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('ORDER_SIGNON') and @GetQueryValue(MFI_FND_LtaEnabledFlag)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Clock In/Clock Out
+   Item=Clock In/Clock Out
+   List=Operations
+   Tool=Dispatch
+   Priv=DISPATCH_MFG
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_495F534A86ED7277E0440003BA041A64,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Buyoffs - Manufacturing - Open and Reject
+   Item=Inspection Buyoffs - Manufacturing - Open and Reject
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Scan Build Unit For Work Execution
+   Item=Scan Build Unit For Work Execution
+   List=
+   Tool=
+   Priv=DISPATCH_MFG
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_13792F73DBF1411E8DDE77FB1CD67F41,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Shift Notes Summary
+   Item=Shift Notes Summary
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Order Hold Summary
+   Item=Order Hold Summary
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Grouped Jobs
+   Item=Grouped Jobs
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Instructions Read Acknowledgement - Summary
+   Item=Instructions Read Acknowledgement - Summary
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Shop Floor Supervisor Home Page
+   Item=Shop Floor Supervisor
+   List=DefinableData.ShopFloorSupervisor
+   Tool=Tools
+   Priv=@HasPriv('SHOPFLOOR_SUPERVISOR_HOMEPAGE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Shop Floor User Home Page
+   Item=Shop Floor User
+   List=DefinableData.ShopFloorUser
+   Tool=Tools
+   Priv=@HasPriv('SHOPFLOOR_USER_HOMEPAGE')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Overhaul Work Orders - All Orders
+   Item=Overhaul Work Orders - All Orders
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Overhaul Work Orders - Shop Orders
+   Item=Overhaul Work Orders - Shop Orders
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Repair Work Orders - All Orders
+   Item=Repair Work Orders - All Orders
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Repair Work Orders - Shop Orders
+   Item=Repair Work Orders - Shop Orders
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Repair Work Order Interface Data
+   Item=Repair Work Order Interface Data
+   List=Operations
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Repair Work Orders - Delivery
+   Item=Repair Work Orders - Delivery
+   List=Operations
+   Tool=Dispatch
+   Priv=
+   Command=
+   Params=
+   FKey=
+ Archiving
+  MenuItem
+   Caption=Completed Work Orders - Create Archive Batch
+   Item=Completed Work Orders - Create Archive Batch
+   List=Archiving
+   Tool=Dispatch
+   Priv=ORDER_ARCHIVE
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Archive Batch Management
+   Item=Archive Batch Management
+   List=Archiving
+   Tool=Dispatch
+   Priv=
+   Command=
+   Params=
+   FKey=
+ Quality_Assurance
+  MenuItem
+   Caption=Inspection Buyoffs - Inspection - Open and Reject
+   Item=Inspection Buyoffs - Inspection - Open and Reject
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_BUYOFFS')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Item Tasks - In Process
+   Item=Discrepancy Item Tasks - In Process
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Item Tasks by Rejecting Location
+   Item=Discrepancy Item Tasks by Rejecting Location
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Item Tasks by Responsible Location
+   Item=Discrepancy Item Tasks by Responsible Location
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Records - In Process
+   Item=Discrepancy Records - In Process
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Corrective Action Requests - In Queue
+   Item=Corrective Action Requests - In Queue
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Corrective Action Tasks - In Process
+   Item=Corrective Action Tasks - In Process
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Corrective Action - Action Items - In Process
+   Item=Corrective Action - Action Items - In Process
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Quality Dashboards and Reports
+   Item=Quality Dashboards and Reports
+   List=DefinableData.MgmtReportPanel
+   Tool=Tools
+   Priv=@HasPriv('MES_REPORTS')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Current Discrepancies on Item
+   Item=Current Discrepancies on Item
+   List=DefinableData.RelatedDisc
+   Tool=Tools
+   Priv=@HasPriv('DISPATCH_ALL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=User Findings - In Process and Complete
+   Item=User Findings - In Process and Complete
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_USER_FINDING')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=PO/PO Line Items
+   Item=PO/PO Line Items
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=SFSQA_PO_DISPATCH
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Orders - In Queue and Active
+   Item=Inspection Orders - In Queue and Active
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Orders - Receiving - In Queue and Active
+   Item=Inspection Orders - Receiving - In Queue and Active
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Orders - Steps - In Queue and Active
+   Item=Inspection Orders - Steps - In Queue and Active
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Units - Completed, Stopped, Scrapped, Cancelled, and Returned
+   Item=Units - Completed, Stopped, Scrapped, Cancelled, and Returned
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Open Requests for Lien Authorization
+   Item=Open Requests for Lien Authorization
+   List=Quality Assurance
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Supplier Portal
+   Item=Supplier Portal
+   List=
+   Tool=
+   Priv=SUPPLIER_PORTAL
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_6F9A6399F2614A3B93B6745B7924FEFF,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Quality User Home Page
+   Item=Quality User
+   List=DefinableData.QualityUser
+   Tool=Tools
+   Priv=@HasPriv('QUALITY_HOMEPAGE')
+   Command=
+   Params=
+   FKey=
+ Engineering
+  MenuItem
+   Caption=Discrepancy Disposition Tasks - In Queue and Active
+   Item=Discrepancy Disposition Tasks - In Queue and Active
+   List=Engineering
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_ENG')
+   Command=
+   Params=
+   FKey=
+ Supplier_Management
+  MenuItem
+   Caption=Supplier Management Dashboard
+   Item=Supplier Management Dashboard
+   List=
+   Tool=
+   Priv=DISPATCH_SUPP
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_8E9FDBAEBB7D4EC68758507BE16C986C,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+ Customer
+  MenuItem
+   Caption=Inspection Buyoffs - Customer - Open and Reject
+   Item=Inspection Buyoffs - Customer - Open and Reject
+   List=Customer
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_CUST')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Disposition Tasks - In Queue and Active
+   Item=Discrepancy Disposition Tasks - In Queue and Active
+   List=Customer
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_CUST')
+   Command=
+   Params=
+   FKey=
+ Tooling_Management
+  MenuItem
+   Caption=Tool Kitting
+   Item=Tool Kitting
+   List=Tooling Management
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_TOOL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Tool Serials Missing
+   Item=Tool Serials Missing
+   List=Tooling Management
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_TOOL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Tool Serials In Repair
+   Item=Tool Serials In Repair
+   List=Tooling Management
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_TOOL')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Tool Serials Cycle Time For Service
+   Item=Tool Serials Cycle Time For Service
+   List=Tooling Management
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_TOOL')
+   Command=
+   Params=
+   FKey=
+ Communications
+  MenuItem
+   Caption=Inbox
+   Item=Inbox
+   List=Communications
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Drafts
+   Item=Drafts
+   List=Communications
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Sent
+   Item=Sent
+   List=Communications
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Completed
+   Item=Completed
+   List=Communications
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Error Log
+   Item=Error Log
+   List=Communications
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Asynchronous Transactions
+   Item=Asynchronous Transactions
+   List=Communications
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=BIS Transaction Logs
+   Item=BIS Transaction Logs
+   List=Communications
+   Tool=Dispatch
+   Priv=@Lic_ENABLE_XML='YES' and @hasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=BIS Reply Logs
+   Item=BIS Reply Logs
+   List=Communications
+   Tool=Dispatch
+   Priv=@Lic_ENABLE_XML='YES' and @hasPriv('DISPATCH_COMM')
+   Command=
+   Params=
+   FKey=
+ Search_Lists
+  MenuItem
+   Caption=Find Work Order by Part/Serial/Lot
+   Item=Find Work Order by Part/Serial/Lot
+   List=
+   Tool=
+   Priv=DISPATCH_MFG
+   Command=CommandEvent(ExecTransaction(@Udv_Id=MFI_74C95E9B62924DE0E04400144FA7B7D2,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=ROM Report
+   Item=AAAAA ROM Report
+   List=
+   Tool=
+   Priv=
+   Command=CommandEvent(ExecTransaction(@Udv_Id=PWUST_8473705FDF8015ECE05387971F0A623A,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Process Plan
+   Item=Find Process Plan
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Work Order
+   Item=Find Work Order
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Work Order by Serial/Lot
+   Item=Find Work Order by Serial/Lot
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_MFG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Discrepancy Record
+   Item=Find Discrepancy Record
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Discrepancy Item
+   Item=Find Discrepancy Item
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Discrepancy Item by Serial/Lot
+   Item=Find Discrepancy Item by Serial/Lot
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Corrective Action
+   Item=Find Corrective Action
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Corrective Action - Action Items
+   Item=Find Corrective Action - Action Items
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Corrective Action Request
+   Item=Find Corrective Action Request
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_QA')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Communications
+   Item=Find Communications
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Inspection Definition
+   Item=Find Inspection Definition
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Inspection Plan
+   Item=Find Inspection Plan
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Inspection Order
+   Item=Find Inspection Order
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Inspection Order by Serial/Lot
+   Item=Find Inspection Order by Serial/Lot
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_INSP_ORDER')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Audit
+   Item=Find Audit
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_AUDIT')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Audit Plan
+   Item=Find Audit Plan
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_PRPLG')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find User Findings
+   Item=Find User Findings
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('DISPATCH_USER_FINDING')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find Changes
+   Item=Find Changes
+   List=Search Lists
+   Tool=Dispatch
+   Priv=@HasPriv('CHANGE_REQUEST_VIEW')
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Find MRO Plan by Task Group Item
+   Item=Find MRO Plan by Task Group Item
+   List=Search Lists
+   Tool=Dispatch
+   Priv=DISPATCH_PRPLG
+   Command=
+   Params=
+   FKey=
+ PAAR_Approval
+  MenuItem
+   Caption=Plan - Requests for Approval
+   Item=Plan - Requests for Approval
+   List=PAAR Approval
+   Tool=Dispatch
+   Priv=CAN_VIEW_PAAR_APPROVAL
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Order - Requests for Approval
+   Item=Order - Requests for Approval
+   List=PAAR Approval
+   Tool=Dispatch
+   Priv=CAN_VIEW_PAAR_APPROVAL
+   Command=
+   Params=
+   FKey=
+admin
+ Manufacturing_Intelligence
+  MenuItem
+   Caption=Schedule Definitions
+   Item=Schedule Definitions
+   List=Manufacturing Intelligence
+   Tool=SysAdmin
+   Priv=@HasPriv('MI_CONFIG') and @GetQueryValue(MFI_FND_MiGlobalParamGet)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Operations Targets, Scores and Ratings
+   Item=Operations Targets, Scores and Ratings
+   List=DefinableData.TargetsScoresAndRatings
+   Tool=Tools
+   Priv=@HasPriv('MI_CONFIG') and @GetQueryValue(MFI_FND_MiGlobalParamGet)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Center Schedules
+   Item=Work Center Schedules
+   List=Manufacturing Intelligence
+   Tool=SysAdmin
+   Priv=@HasPriv('MI_CONFIG') and @GetQueryValue(MFI_FND_MiGlobalParamGet)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Solumina Instances
+   Item=Solumina Instances
+   List=Manufacturing Intelligence
+   Tool=SysAdmin
+   Priv=@HasPriv('MI_CONFIG') and @GetQueryValue(MFI_FND_MiGlobalParamGet)='Y'
+   Command=
+   Params=
+   FKey=
+ Planning_and_Operations
+  MenuItem
+   Caption=Configuration
+   Item=Configuration
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Customers
+   Item=Customers
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Effectivity/Unit Types
+   Item=Effectivity/Unit Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Hold Types
+   Item=Hold Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Item Types and Subtypes
+   Item=Item Types and Subtypes
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Models
+   Item=Models
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Note Types
+   Item=Note Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Operation Types
+   Item=Operation Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=LOOKUP_OPERTYPE_UPDATE
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Overhaul Work Scope Codes
+   Item=Overhaul Work Scope Codes
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Part Disposition Types
+   Item=Part Disposition Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Process Types
+   Item=Process Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Test Category Types
+   Item=Test Category Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=UID Entry
+   Item=UID Entry
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Unit Conditions
+   Item=Unit Conditions
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Units of Measure
+   Item=Units of Measure
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manuals
+   Item=Manuals
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manual Providers
+   Item=Manual Providers
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Manual Types
+   Item=Manual Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Authority Types
+   Item=Authority Types
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=ZCOM Sales Orders
+   Item=ZCOM Sales Orders
+   List=Planning and Operations
+   Tool=SysAdmin
+   Priv=
+   Command=
+   Params=
+   FKey=
+ Discrepancy
+  MenuItem
+   Caption=Component Disposition Types
+   Item=Component Disposition Types
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Categories
+   Item=Discrepancy Categories
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Causes
+   Item=Discrepancy Causes
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Defects
+   Item=Discrepancy Defects
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Discrepancy Symptoms
+   Item=Discrepancy Symptoms
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Disposition Document Types
+   Item=Disposition Document Types
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Disposition Types
+   Item=Disposition Types
+   List=Discrepancy
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+ Organization_Management
+  MenuItem
+   Caption=Companies
+   Item=Companies
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=LOOKUP_COMPANY_UPDATE
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Engineering Groups
+   Item=Engineering Groups
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Issuing Agency
+   Item=Issuing Agency
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Labor and Time Accounts
+   Item=Labor and Time Accounts
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=@HasPriv('SYSADMIN_VIEW') and @GetQueryValue(MFI_FND_LtaEnabledFlag)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Labor Sign On Types
+   Item=Labor Sign On Types
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Labor Type
+   Item=Labor Type
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Planning Groups
+   Item=Planning Groups
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Programs
+   Item=Programs
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Projects
+   Item=Projects
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Package Activity
+   Item=Package Activity
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Center Types
+   Item=Work Center Types
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Work Loc, Dept, Center
+   Item=Work Loc, Dept, Center
+   List=Organization Management
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+ Corrective_Action
+  MenuItem
+   Caption=Action Item Types
+   Item=Action Item Types
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Corrective Action Codes
+   Item=Corrective Action Codes
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Request Document Types
+   Item=Request Document Types
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Request Types
+   Item=Request Types
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Risk Detectability Rating
+   Item=Risk Detectability Rating
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Risk Likelihood Rating
+   Item=Risk Likelihood Rating
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Risk Severity Rating
+   Item=Risk Severity Rating
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Source Groups
+   Item=Source Groups
+   List=Corrective Action
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+ Supplier_Quality_Maintenance
+  MenuItem
+   Caption=Charge Codes
+   Item=Charge Codes
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Commodities
+   Item=Commodities
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Contact Types
+   Item=Contact Types
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Item Classes
+   Item=Inspection Item Classes
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Item Names
+   Item=Inspection Item Names
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Item Types
+   Item=Inspection Item Types
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Methods
+   Item=Inspection Methods
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Inspection Steps
+   Item=Inspection Steps
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Requirement Group Types
+   Item=Requirement Group Types
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Severity States
+   Item=Severity States
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Supplier Categories
+   Item=Supplier Categories
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Validation Result Types
+   Item=Validation Result Types
+   List=Supplier Quality Maintenance
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+ Sampling
+  MenuItem
+   Caption=Attribute Sampling Plans
+   Item=Attribute Sampling Plans
+   List=Sampling
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Control Plans
+   Item=Control Plans
+   List=Sampling
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Severity Switching Rules
+   Item=Severity Switching Rules
+   List=Sampling
+   Tool=SysAdmin
+   Priv=SYSADMIN_VIEW
+   Command=
+   Params=
+   FKey=
+ Solumina_Configuration_Tables
+  MenuItem
+   Caption=Communication Queues
+   Item=Communication Queues
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Document Types and Subtypes
+   Item=Document Types and Subtypes
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Global Parameters
+   Item=Global Parameters
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Messages
+   Item=Messages
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Number Generator
+   Item=Number Generator
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Queue Types
+   Item=Queue Types
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Reporting
+   Item=Reporting
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Report Types
+   Item=Report Types
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Report Maintenance
+   Item=Report Maintenance
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Language Support
+   Item=Language Support
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Alerts
+   Item=Alerts
+   List=Solumina Configuration Tables
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Encrypt/Decrypt - DXC
+   Item=Encrypt/Decrypt - DXC
+   List=
+   Tool=
+   Priv=DXC_DEVELOPER
+   Command=CommandEvent(ExecTransaction(@Udv_Id=PWUST_DA163DB0357300FCE043AC13468700FC,@SQLTransaction=INSERT))
+   Params=
+   FKey=
+ User_Management
+  MenuItem
+   Caption=Certs
+   Item=Certs
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Privs
+   Item=Privs
+   List=User Management
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Roles
+   Item=Roles
+   List=User Management
+   Tool=SysAdmin
+   Priv=CONFIG_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Security Groups
+   Item=Security Groups
+   List=User Management
+   Tool=SysAdmin
+   Priv=PW_SECURITY_MENU
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Security Group Types
+   Item=Security Group Types
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Skill Categories
+   Item=Skill Categories
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Skill Types
+   Item=Skill Types
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=User Classes
+   Item=User Classes
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Users
+   Item=Users
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Users Security Groups
+   Item=Users Security Groups
+   List=User Management
+   Tool=SysAdmin
+   Priv=@HasPriv('PW_SECURITY_MENU') and @GetQueryValue(SECURITYGROUPFLAGGET)='Y'
+   Command=
+   Params=
+   FKey=
+  MenuItem
+   Caption=Levels
+   Item=Levels
+   List=User Management
+   Tool=SysAdmin
+   Priv=USER_VIEW
+   Command=
+   Params=
+   FKey=

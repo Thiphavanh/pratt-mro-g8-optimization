@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+
+    Proprietary and Confidential
+    Copyright 1995-2015 iBASEt, Inc.
+    Unpublished-rights reserved under the Copyright Laws of the United States
+    US Government Procurements:
+    Commercial Software licensed with Restricted Rights.
+    Use, reproduction, or disclosure is subject to restrictions set forth in
+    license agreement and purchase contract.
+    iBASEt, Inc. 27442 Portola Parkway, Suite 300, Foothill Ranch, CA 92610
+
+    Solumina software may be subject to United States Dept of Commerce Export Controls.
+    Contact iBASEt for specific Expert Control Classification information.
+
+    File: PWMRO-Planning/src/main/resources/soluminaExtensionContext.xml 
+	Created: 2017 
+	Author: iBASEt 
+	
+
+	Revision History 
+	
+	Date       Who            	Description 
+	********** ***************	*********************************************************************** 
+	2017-08-04 R. Thorpe      	SMRO_PLG_205
+	2017-09-29 R. Cannon		SMRO_USR_201 (LDAP Authentication - UserPW & UserDaoPW)
+	2017-10-13 D. Miron         SMRO_EXPT_201 and SMRO_TR_225
+	2017-10-19 R. Thorpe        EACP Added Beans EACP Interface
+	2018-03-21 R. Thorpe        Removed eACP interface Beans - moved to Interfaces Project
+	2018-08-10 T. Phan          Added CompareToolDaoPW
+	2018-10-19 R. Cannon		SMRO_CV_202 (added com.pw.solumina.migration.application.SiteSpecificOKC)
+	2019-06-13 D. Miron         R2SP4HF3 Upgrade - Removed transactionManager property from asipsAsyncTransactionService bean
+	2020-12-14 S. Edgerly		SMRO_WOE_308 - Defect 1819 - Supplemental Orders
+	2021-03-04 J. DeNinno       Defect 1861  <bean class="com.ibaset.solumina.planning.item.impl.ItemApplicationImplPW2"></bean>
+ -->
+ <beans xmlns="http://www.springframework.org/schema/beans" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:jms="http://www.springframework.org/schema/jms" 
+        xmlns:aop="http://www.springframework.org/schema/aop" 
+        xmlns:tx="http://www.springframework.org/schema/tx" 
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+        http://www.springframework.org/schema/jms 
+        http://www.springframework.org/schema/jms/spring-jms-2.1.xsd 
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd" 
+        default-lazy-init="false" 
+        default-dependency-check="none" 
+        default-autowire="no">
+        
+ <!--  ALL BEAN DEFINITIONS THAT DEPENDS ON BEANS IN integrationContext.xml SHOULD GO IN integrationExtensionContext.xml --> 
+ 
+     <!-- PWMRO-Planning BEGIN -->
+     
+     <!-- com.ibaset.solumina.planning.plan.integration.impl -->
+     <bean class="com.ibaset.solumina.planning.plan.integration.impl.PlanMapperDaoImplPW"></bean>
+     
+     <!-- com.ibaset.solumina.planning.plan.integration.impl -->
+     
+	 <!-- com.pw.solumina.export_control -->
+	 <bean class="com.pw.solumina.export_control.CallXClassWebServicePW"></bean>
+	 <bean class="com.pw.solumina.export_control.XClassItemInfoBean"></bean>
+	 <bean class="com.pw.solumina.export_control.XClassItemInfoSaxHandler"></bean>
+	 <bean class="com.pw.solumina.export_control.XClassWebServiceCallResult"></bean>
+
+	 <!-- com.pw.solumina.migration.application -->
+	 <bean class="com.pw.solumina.migration.application.SiteSpecificOkcPW"></bean>
+	 <bean class="com.pw.solumina.migration.application.SoluminaMigrationPW"></bean>
+	 <bean class="com.pw.solumina.migration.application.SoluminaMigrationDaoPW"></bean>
+
+	 <!-- com.pw.solumina.sffnd.application -->
+	 <bean class="com.pw.solumina.sffnd.application.CommunicationPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.application.UserPW"></bean>
+	 
+     <!-- com.pw.solumina.sffnd.dao -->
+	 <bean class="com.pw.solumina.sffnd.dao.TaskDaoPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.dao.CommunicationDaoPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.dao.UserDaoPW"></bean>
+
+     <!-- com.pw.solumina.sfor.application -->
+     <bean class="com.pw.solumina.sfor.application.SfplPlanPW"></bean>
+     <bean class="com.pw.solumina.sfor.application.SfwidUndoPW"></bean>
+
+	 <!-- com.pw.solumina.sfor.dao -->
+	 <bean class="com.pw.solumina.sfor.dao.TaskGroupsDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfor.dao.SfwidUndoDaoPW"></bean>
+ 
+	 <!-- com.pw.solumina.sfpl.application -->
+	 <bean class="com.pw.solumina.sfpl.application.ClassifyPlanPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.application.MailPW"></bean>		
+	 <bean class="com.pw.solumina.sfpl.application.PlanModelPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.application.PlanPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.application.impl.CopyPlanOrderOperationRepair"></bean>
+	 <bean class="com.pw.solumina.sfpl.application.StepPW"></bean>
+	 
+	 <!-- com.pw.solumina.sfpl.dao -->
+	 <bean class="com.pw.solumina.sfpl.application.impl.PlanDaoImplPW"></bean>	      
+	 <bean class="com.pw.solumina.sfpl.dao.AssembleTextDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.dao.PlanDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.dao.StandardNetworkDao"></bean>
+	 <bean class="com.pw.solumina.sfpl.dao.CompareToolDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.dao.StepDaoPW"></bean>
+	 
+
+	 <!-- com.pw.solumina.sfwid.application -->
+	 <bean class="com.pw.solumina.sfwid.application.BuildPartPW"></bean>
+	 
+	 <!-- com.pw.solumina.standardnetwork -->
+	 <bean class="com.pw.solumina.standardnetwork.StandardNetwork"></bean>
+	 
+     <!-- com.pw.solumina.sysadmin.application -->
+     <bean class="com.pw.solumina.sysadmin.application.OverhaulWorkScopeCodesPW"></bean>
+
+     <!-- com.pw.solumina.sysadmin.dao -->
+     <bean class="com.pw.solumina.sysadmin.dao.OverhaulWorkScopeCodesDaoPW"></bean>
+
+	 <!-- com.pw.solumina.xClassWebService -->
+	 <bean class="com.pw.solumina.xClassWebService.AuthHeader"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.CancelRequest"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.CancelRequestResponse"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.FastPath"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.FastPathResponse"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.GetItemInfoResponseGetItemInfoResult"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.NewRequest"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.NewRequestResponse"></bean>
+	 <!-- <bean class="com.pw.solumina.xClassWebService.XClassWS_Soap"></bean> -->
+	 <bean class="com.pw.solumina.xClassWebService.XClassWS_SoapProxy"></bean>
+	 <bean class="com.pw.solumina.xClassWebService.XClassWS_SoapStub"></bean>
+	 <!-- <bean class="com.pw.solumina.xClassWebService.XClassWS"></bean> -->
+	 <bean class="com.pw.solumina.xClassWebService.XClassWSLocator"></bean>
+	 
+	
+	 <!-- PWMRO-Planning END -->
+     <!--  work order create Over Haul -->
+     <!-- Start -->
+     <bean class="com.pw.solumina.sfpl.application.impl.OrderMROOverhaulPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.dao.impl.OrderCreateDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfpl.dao.impl.BuildMROOrderNumberDao"></bean>
+     <bean class="com.pw.solumina.sfpl.application.impl.buildMROOrderNumber"></bean>
+     <bean class="com.pw.solumina.sfpl.application.impl.UpdateOverHaulTaskStatus"></bean>
+     
+     
+     <bean id="CallOrderCreate"
+              class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+              <property name="transactionManager" ref="transactionManager" />
+              <property name="transactionAttributes">
+                      <props>
+                      		<prop key="callOOBCreateOrder">PROPAGATION_REQUIRES_NEW</prop>   
+                      </props>
+              </property>
+              <property name="target">
+                      <bean class="com.pw.solumina.sfpl.application.impl.CallOrderCreate"> </bean>
+              </property>
+      </bean>
+      
+     <bean id="LogOrderCreateErrors"
+              class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+              <property name="transactionManager" ref="transactionManager" />
+              <property name="transactionAttributes">
+                      <props>
+                      		<prop key="insertIntoErrorTable">PROPAGATION_REQUIRES_NEW</prop>
+                      </props>
+              </property>
+              <property name="target">
+                      <bean class="com.pw.solumina.sfpl.dao.impl.LogOrderCreateErrors"> </bean>
+                      
+              </property>
+      </bean>
+     <!-- End -->      
+      
+     <!--  work order create Over Repair-->
+     <!-- Start -->
+     
+      <!-- Start - Bean definitions for Asynchronous transaction config -->
+      <bean id="asipsAsyncTransactionDelayZero" class="java.lang.Long">
+              <constructor-arg value="0" />
+      </bean>
+
+      <bean id="asipsAsyncTransactionService"
+              class="com.ibaset.common.concurrent.AsynchronousTransactionServiceImpl"
+              destroy-method="cleanUp">
+              <property name="poolSize" value="10" />
+              <property name="login" ref="login" />
+              <property name="errorLog" ref="errorLog" />
+              <property name="processLog" ref="processLog" />
+              <property name="delay" ref="asipsAsyncTransactionDelayZero" />
+    <!--      <property name="transactionManager" ref="soluminaTransactionManager" />  -->
+       </bean>
+       <!-- End - Bean definitions for Asynchronous transaction config -->
+     
+     
+     
+     <bean class="com.pw.solumina.sfpl.dao.impl.RepairOrderCreateDaoPW"></bean>
+     <bean class="com.pw.solumina.sfpl.application.impl.OrderMRORepairPW"></bean>
+     <!-- End -->       
+</beans>

@@ -1,0 +1,1 @@
+alter table sfmfg.PWUST_SFWID_ORDER_DESC add OUTGOING_PART_NO varchar2(18);

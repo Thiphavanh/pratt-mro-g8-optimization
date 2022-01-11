@@ -1,0 +1,44 @@
+CREATE OR REPLACE PROCEDURE PWUE_MANUAL_INS_UPDT_DEL AS
+  V_CON VARCHAR2(40);
+
+BEGIN
+
+  SFCORE_LOGIN_USER(USER, '', 'FAT', '127.0.0.1', '', '', 'N', V_CON);
+  SFCORE_SET_FLAG('CLIENT_SESSION');
+
+-- update master table data
+update pwue_general_lookup set data_desc = 'MECH/Technician/Work By' where data_field = 'BUYOFF' and data_value = 'MFG';
+update pwue_general_lookup set data_desc = 'INSP/Auth. Sig./QA/QC' where data_field = 'BUYOFF' and data_value = 'INSP';
+update pwue_general_lookup set data_desc = 'ALC INSP/OP INSP/QCA' where data_field = 'BUYOFF' and data_value = 'QA';
+update pwue_general_lookup set data_desc = 'Customer' where data_field = 'BUYOFF' and data_value = 'CUST';
+update pwue_general_lookup set data_desc = 'Operator' where data_field = 'BUYOFF' and data_value = 'MFG2';
+update pwue_general_lookup set data_desc = 'Borescope INSP' where data_field = 'BUYOFF' and data_value = 'TECH';
+update pwue_general_lookup set data_desc = 'Engineering' where data_field = 'BUYOFF' and data_value = 'TECH2';
+commit;
+
+
+--- update buyoff title for orders
+update sfwid_oper_buyoff set buyoff_title = 'MECH/Technician/Work By' where buyoff_type = 'MFG';
+update sfwid_oper_buyoff set buyoff_title = 'INSP/Auth. Sig./QA/QC' where buyoff_type = 'INSP';
+update sfwid_oper_buyoff set buyoff_title = 'ALC INSP/OP INSP/QCA' where buyoff_type = 'QA';
+update sfwid_oper_buyoff set buyoff_title = 'Customer' where buyoff_type = 'CUST';
+update sfwid_oper_buyoff set buyoff_title = 'Operator' where buyoff_type = 'MFG2';
+update sfwid_oper_buyoff set buyoff_title = 'Borescope INSP' where  buyoff_type = 'TECH';
+update sfwid_oper_buyoff set buyoff_title = 'Engineering' where  buyoff_type = 'TECH2';
+commit;
+
+
+--- update buyoff title for plans
+update sfpl_step_buyoff set buyoff_title = 'MECH/Technician/Work By' where buyoff_type = 'MFG';
+update sfpl_step_buyoff set buyoff_title = 'INSP/Auth. Sig./QA/QC' where buyoff_type = 'INSP';
+update sfpl_step_buyoff set buyoff_title = 'ALC INSP/OP INSP/QCA' where buyoff_type = 'QA';
+update sfpl_step_buyoff set buyoff_title = 'Customer' where buyoff_type = 'CUST';
+update sfpl_step_buyoff set buyoff_title = 'Operator' where buyoff_type = 'MFG2';
+update sfpl_step_buyoff set buyoff_title = 'Borescope INSP' where  buyoff_type = 'TECH';
+update sfpl_step_buyoff set buyoff_title = 'Engineering' where  buyoff_type = 'TECH2';
+commit;
+
+
+END PWUE_MANUAL_INS_UPDT_DEL;
+/
+exec PWUE_MANUAL_INS_UPDT_DEL;

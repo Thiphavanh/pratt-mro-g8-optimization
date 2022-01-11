@@ -1,0 +1,110 @@
+prompt create backout table
+create table thumbnail_reverter as
+select slide_rid, emb_obj_rid, image,ithumb,slide_object_id,emb_object_id
+  from (select a.rowid as slide_rid, a.object_id as slide_object_id,
+                length(a.thumbnail) as sthumb_size,
+                c.object_id as emb_object_id,
+                length(c.thumbnail) as emb_thumb_size, a.text_data as st_data,
+                a.binary_data as sb_data,
+                length(c.binary_data) as emb_obj_size, c.rowid as emb_obj_rid,
+                a.thumbnail as sthumb, c.thumbnail as ithumb,
+                c.binary_data as image, c.time_stamp as idate,
+                a.time_stamp as sdate, a.status as sstaus, c.status as istatus
+           from sfcore_mm_object a, sfcore_mm_htref b, sfcore_mm_object c
+          where a.object_id = b.object_id
+          and b.embedded_object_id = c.object_id
+          and c.object_type = 'IMAGE'
+          and nvl(length(a.binary_data), 0) = 0
+          and nvl(length(c.binary_data), 0) > 0 --make sure the embedded object/IMAGE has data
+         ) a
+ where sthumb_size >= emb_obj_size
+ or emb_thumb_size >= emb_obj_size;
+
+create table thumbnail_gen_tracker
+(image_rid rowid,status varchar2(10));
+
+create or replace function gen_thumbnail (image blob) return blob as
+thumbnail blob;  
+BEGIN
+  dbms_lob.createTemporary(thumbnail, true);
+  ORDSYS.ORDImage.processCopy(image,
+                              'maxscale=192 192',
+                              thumbnail);
+return thumbnail;
+end;
+/
+
+create or replace procedure thumbnail_fixer as
+-- Created on 5/4/2021 by X010181 
+cid varchar2(100);
+new_thumb blob;
+procedure thumbnail_tracker_record(ir rowid,s varchar2) is
+pragma autonomous_transaction;
+begin
+  insert into thumbnail_gen_tracker(image_rid,status)
+  values(ir,s); 
+  commit;
+end thumbnail_tracker_record;
+begin
+  delete thumbnail_gen_tracker; --remove any prior executions
+  commit;
+  cid := sys_context('USERENV','CLIENT_IDENTIFIER');
+  if cid is null then
+    sfdb_login;
+  end if;
+  for x in (select slide_rid, emb_obj_rid, image,ithumb
+  from (select a.rowid as slide_rid, a.object_id as slide_object_id,
+                length(a.thumbnail) as sthumb_size,
+                c.object_id as emb_object_id,
+                length(c.thumbnail) as emb_thumb_size, a.text_data as st_data,
+                a.binary_data as sb_data,
+                length(c.binary_data) as emb_obj_size, c.rowid as emb_obj_rid,
+                a.thumbnail as sthumb, c.thumbnail as ithumb,
+                c.binary_data as image, c.time_stamp as idate,
+                a.time_stamp as sdate, a.status as sstaus, c.status as istatus
+           from sfcore_mm_object a, sfcore_mm_htref b, sfcore_mm_object c
+          where a.object_id = b.object_id
+          and b.embedded_object_id = c.object_id
+          and c.object_type = 'IMAGE'
+          and nvl(length(a.binary_data), 0) = 0
+          and nvl(length(c.binary_data), 0) > 0 --make sure the embedded object/IMAGE has data
+         ) a
+ where sthumb_size >= emb_obj_size
+ or emb_thumb_size >= emb_obj_size) loop
+begin
+  new_thumb:=gen_thumbnail(x.image);
+update sfcore_mm_object
+set thumbnail=new_thumb
+where rowid=x.slide_rid;
+update sfcore_mm_object
+set thumbnail=new_thumb
+where rowid=x.emb_obj_rid;
+thumbnail_tracker_record(x.emb_obj_rid,'OK'); 
+exception when others then
+  begin
+    new_thumb:=gen_thumbnail(x.ithumb);
+ update sfcore_mm_object
+set thumbnail=new_thumb
+where rowid=x.slide_rid;
+update sfcore_mm_object
+set thumbnail=new_thumb,image=x.ithumb
+where rowid=x.emb_obj_rid;   
+    thumbnail_tracker_record(x.emb_obj_rid,'OK');
+  exception when others then
+    thumbnail_tracker_record(x.emb_obj_rid,'ERROR'); 
+  end;
+end;
+end loop;
+commit;
+end;
+/
+
+
+declare
+jn integer;
+begin
+  dbms_job.submit(jn,'thumbnail_fixer;',sysdate);
+  commit;
+end;
+/
+

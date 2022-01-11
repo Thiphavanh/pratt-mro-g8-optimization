@@ -1,0 +1,10 @@
+create sequence PWUST_HIST_SEQ
+minvalue 1
+maxvalue 999999999999999999999999999
+start with 1001
+increment by 1
+cache 1000
+order;
+grant select on PWUST_HIST_SEQ to SF$CONNECTION_POOL;
+
+

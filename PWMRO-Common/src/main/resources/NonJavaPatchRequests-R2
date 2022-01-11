@@ -1,0 +1,484 @@
+Please copy and paste the sample and add it to the bottom
+of this file with your non java patch requests.
+
+- DER:  					 SoluminaOOB 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SoluminaOOB_Defect970_20181010
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 970
+- Production Fix: 			 No
+- Author                     C079222 for X002465
+
+- DER:  					 N/A 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect997_20181026
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 997, Select ORIG_PROGRAM
+- Production Fix: 			 No
+- Author                     Bob Preston
+
+- DER:  					 SMRO_WOE_202 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_202_Defect_731_20181029
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 731
+- Production Fix: 			 No
+- Author                     Raeann Thorpe
+
+- DER:  					 R2 Upgrade 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_R2Upgrade_Defect_1029_20181106
+- DDL change?:				 No
+- INI update?:				 YES
+- Description:  			 Defect 1029
+- Production Fix: 			 No
+- Author                     Raeann Thorpe
+
+- DER:                       SMRO_eWORK_202_Order_Creation
+- Patch File location:       K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_DEFECT_1026_20181112
+- DDL change?:               Yes
+- INI update?:               No
+- Description:               Defect 1026, Orders have blank header tabs, changed view PWUST_ORDERHEADERTABSEL_V
+- Production Fix:            No
+- Author                     Fred Ettefagh
+
+- DER:                       SMRO_eWORK_202_Order_Creation
+- Patch File location:       K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_202_Defects_1032_20181127
+- DDL change?:               No
+- INI update?:               No
+- Description:               Defect 1032, added missing UDV "PWUST_6EEFB61E0646E3DFE05387971F0A1D34",  "PWUST_CpyOperPlanToOrderIM"
+- Production Fix:            No
+- Author                     Fred Ettefagh
+
+- DER:                       SMRO_QA_201 - Discrepancy
+- Patch File location:       K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_QA_201_Defect_1030_20181204
+- DDL change?:               No
+- INI update?:               No
+- Description:               Defect 1030, due to upgrade to R2, had to change sql lib "PWUST_DiscItemSel" and "PWUST_DiscItemsSelect" to match OOB "DiscItemSel" and  "DiscItemsSelect"
+- Production Fix:            No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_WOE_202 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_202_Defects_731_R2_20181213
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Defect 731
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_eWORK_202_Order_Creation 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MRO_eWORK_202_Defect_1044_20190121
+- DDL change?:				 NO
+- INI update?:				 Yes
+- Description:  			 Defect 1044
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_USR_206
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_206_UserLoadProc_20190117
+- DDL change?:				 Yes
+- INI update?:				 No
+- Description:  			 Proc PWUST_INSERT_NEW_USER: Insert statements modified to match Java during app user insert
+- Production Fix: 			 No
+- Author                     Rusty Cannon
+
+- DER:  					 SMRO_USR_206
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_206_UserLoadProc_20190130
+- DDL change?:				 Yes
+- INI update?:				 No
+- Description:  			 Error logging
+- Production Fix: 			 No
+- Author                     Rusty Cannon
+
+- DER:  					 PLG309_Plan_Effectivity 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_PLG309_Plan_Effectivity_20190204
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Add a Plan Effectivity for Repair UDV substitution.
+- Production Fix: 			 No
+- Author                     X002465
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defects_964_1034_R2_20190208
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Security for Parts & Tools.
+- Production Fix: 			 No
+- Author                     X002465
+
+- DER:  					 SMRO_eWORK_202
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1126_R2_20190225
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Order Number Cleanup - Work Orders - In Queue and Active.
+- Production Fix: 			 No
+- Author                     X002465
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect1136_R2_20190304
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Security on Parts & Tools palettes.
+- Production Fix: 			 No
+- Author                     Bob Preston
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect1138_R2_20190306
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Security on Parts & Tools Plan popups.
+- Production Fix: 			 No
+- Author                     Bob Preston
+
+- DER:  					 SMRO_eWORK_202 - Order Creation
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MRO_eWORK_202-Order_Defect_1162_20190318
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 fixed IM UDV, insert operations in an order displaying data for insert
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect1159_20190404
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 1159 - Fixed SG issue with Parts Dispatch.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 PWU-116B
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_PWU-116B_TaskAuthority_20190409
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Task Authority update from iBaset.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect1159_20190411
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 1159 - Fixed SG issue with Tool Dispatch.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_USR_202
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_202_Defect1183_20190417
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Adds priv PLAN_PLG_AUTHORING
+- Production Fix: 			 No
+- Author                     Thien-Long Phan
+
+- DER:  					 SMRO_PLG_311
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_PLG_311_Defect1247_20190425
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Change char length of Authority Type to 40
+- Production Fix: 			 No
+- Author                     Thien-Long Phan
+
+- DER:  					 SMRO_WOE_202
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_202_Defect1226_20190503
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Re-release UDV.
+- Production Fix: 			 No
+- Author                     Bob Preston
+
+- DER:  					 PW_SMRO_WOE_309
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_309_20190515
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Hide Order buttons for Repair Orders
+- Production Fix: 			 No
+- Author                     Thien-Long Phan
+
+
+- DER:  					 SMRO_WOE_310
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_310_Order_Creation_20190610
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Ini Lib change for repair work order split aux udv
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 R2SP4HF3_UPGRADE
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MENU_R2SP4HF3_Upgrade_SODMRO2_20190613
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Menu update
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SRMO_USR_203 Defect 1218
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MENU_R2SP4HF3_Upgrade_SODMRO2_20190613
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Defect 1218 - Assign PW_ORDER_OPER_INC and PW_ORDER_TASK_INC privs to SF$SUPERUSER role
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 Solumina_OOB Defect 1355
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Solumina_OOB_Defect_1355_20190716
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Defect 1355 - Change OOB sql for standard operations tab in Process Planning > Release Packages - All.
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 N/A
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect319_20190719
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Remove new tab from MRO2.
+- Production Fix: 			 No
+- Author                     Bob Preston
+
+- DER:  					 SMRO_WOE_310
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_310_TravelerRpt_Part1_20190910
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Barcode Traveler from within an Order.  
+- Production Fix: 			 No
+- Author                     Raeann Thorpe
+
+- DER:  					 SRMO_WOE_302 Defect 1386
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_302_Defect1386_20191030
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Removed debug message from UDV script.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_WOE_310
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_310_Order_Creation_20191106
+- DDL change?:				 Yes
+- INI update?:				 Yes
+- Description:  			 full patch for all repair work order create DB objects
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_TR_319
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_TR_319_20191106
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Changed Repair interface t319 queues based on MW limit on length 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_WOE_301
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_301_Defect_1407_20191112
+- DDL change?:				 Yes
+- INI update?:				 No
+- Description:  			 Changed repair order split and sub order create plan lookup 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_20190711
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Fix Defect 1125 for DXC-R2 branch
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_EXPT_203 Defect 1409
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect267_1409_20200108
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Re-implement Fix for Defect 267 in DXC-R2 branch
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_eWORK_202 Defect 1127
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect1127_20200116
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Replace order_no with pw_order_no in Work Order Operations - In Queue and Active
+- Production Fix: 			 No
+- Author                     T. Phan
+
+- DER: SMRO_USR_206				 
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_206_UserLoadProc_20200211
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Added code for badge_id load and improve performance for role assignment
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_R2_20200210
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Re-package Defect 1125 for DXC-R2 branch
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_EXPT_203
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_EXPT_203_Defect_954_20200212
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 fixed sql lib for standard text look up 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_R2_20200213
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Another attempt to prevent INI changes for Defect 1125 from disappearing again for Repair Branch DXC-R2 (MRO2/Q2) only
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 Defect 1515
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1515_20200212
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fix visibility logic for unserviceable units button
+- Production Fix: 			 No
+- Author                     B. Polak
+
+- DER:  					 SMRO_eWORK_202 Defect 1125
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defect_1125_R2_20200213
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Another attempt to prevent INI changes for Defect 1125 from disappearing again for Repair Branch DXC-R2 (MRO2/Q2) only
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 N/A  Defect 1508
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1508_20200219
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fix order header planned for work location not matching plan for Repair Branch DXC-R2 (MRO2/Q2) only
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_WOE_310 Defect 1452
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_defect1452_BarcodedTraveler_20200227
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fix to barcoded traveler to cause it to not crash on load when more than one serial numbers are present
+- Production Fix: 			 No
+- Author                     B. Polak
+
+- DER:  					 N/A Defect 1406
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1406_20200227
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fix to Outgoing Part Number field
+- Production Fix: 			 No
+- Author                     B. Polak
+
+- DER:  					 N/A  Defect 1558
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_Defect_1558_20200228
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Fix Unserviceable Units (scrap) button on Order for Repair Branch DXC-R2 (MRO2/Q2) only
+- Production Fix: 			 No
+- Author                     B. Corson
+
+- DER:  					 SMRO_WOE_206  Defect 1568
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_206_Defect_1568_20200228
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fixed sql_lib for data collections tab in orders 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_USR_205  Defect 1040
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_USR_205_Defect1040_20200228
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fix drop-down for Req'd Cert when embedding Buyoffs and related Java error for Overhaul in Repair Branch DXC-R2 (MRO2/Q2)
+- Production Fix: 			 Yes
+- Author                     B. Corson
+
+- DER:  					 SMRO_PLG_310  Defect 1230
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_PLG_310_Defect_1230_20200306
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 removed duplicate menus Manuals,Manual Providers,Manual Types, and Authority Types from system admin 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_PLG_310  Defect 1230
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_MENU_SMRO_PLG_310_Defect_1230_20200306
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 removed duplicate menus Manuals,Manual Providers,Manual Types, and Authority Types from system admin 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_PLG_310  Defect 1230
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_PLG_310_Defect_1230_20200306
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Merged ini and menu files 
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_WOE_310 Defect 1566, 1575
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_defect_1566_20200316
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Updates to the barcode traveler
+- Production Fix: 			 No
+- Author                     Brendan Polak
+
+- DER:  					 SMRO_eWORK_202 Defect 1589
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defects_1589_DXC-R2_20200325
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Removed unwanted fields from Data Collection UDV's (plan and order) and Repair and Overhaul Work Order Tabs.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_WOE_310 Defect 1565, 1575
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_BarcodeTraveller_Defect_1565_20200325
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Updates to the barcode traveler - export controls
+- Production Fix: 			 No
+- Author                     Brendan Polak
+
+<<<<<<< Upstream, based on branch 'DXC-R2' of https://github.pw.utc.com/PW-MRO-G8-Team/PWMROG8-NextGen.git
+- DER:  					 SMRO_eWORK_202 Defect 1589
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defects_1589_DXC-R2_20200331
+- DDL change?:				 No
+- INI update?:				 Yes
+- Description:  			 Removed unwanted fields from Data Collection UDV's (plan and order) and Repair and Overhaul Work Order Tabs.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_T314
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_T314_20200402
+- DDL change?:				 Yess
+- INI update?:				 No
+- Description:  			 Changed T314 log table column size, based on end to end testing
+- Production Fix: 			 No
+- Author                     Fred Ettefagh
+
+- DER:  					 SMRO_WOE_310 Defect 1565, 1566, 1575
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_defect_1565_1566_1575_20200403
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Updates to the barcode traveler - corrections to export controls, barcodes and spacing issues. 
+- Production Fix: 			 No
+- Author                     Brendan Polak
+
+- DER:  					 SMRO_eWORK_202 Defect 1589
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_eWORK_202_Defects_1589_20200407
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Removed unwanted fields from Release Packages-All, Process Plan Tab.
+- Production Fix: 			 No
+- Author                     David Miron
+
+- DER:  					 SMRO_WOE_202 Defect 2009
+- Patch File location: 		 K:\devl\wnt\solumina\PWPatchMRO_G8_DXC-R2\Release\PW_SMRO_WOE_202_Defect_2009_20211025
+- DDL change?:				 No
+- INI update?:				 No
+- Description:  			 Fixed priviledge issue with Add Signature when swiping badge.
+- Production Fix: 			 No
+- Author                     David Miron

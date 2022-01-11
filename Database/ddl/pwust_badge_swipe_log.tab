@@ -1,0 +1,26 @@
+create table PWUST_BADGE_SWIPE_LOG
+(
+  HIST_ID         NUMBER not null,
+  ORDER_ID        VARCHAR2(40) not null,
+  PW_ORDER_NO     VARCHAR2(80) not null,
+  OPER_KEY        NUMBER not null,
+  STEP_KEY        NUMBER default -1 not null,
+  OPER_NO         VARCHAR2(10),
+  STEP_NO         VARCHAR2(10),
+  BUYOFF_ID       VARCHAR2(40) not null,
+  BUYOFF_TYPE     VARCHAR2(20),
+  BUYOFF_STATUS   VARCHAR2(20),
+  SWIPED_BADGE_ID VARCHAR2(50),
+  SWIPED_USERID   VARCHAR2(50),
+  SESSION_USERID  VARCHAR2(50),
+  SIGNOFF_USERID  VARCHAR2(50),
+  TIME_STAMP      DATE default sysdate not null,
+  LAST_ACTION     VARCHAR2(20) default 'INSERTED' not null
+)
+;
+alter table PWUST_BADGE_SWIPE_LOG
+  add constraint PWUST_BADGE_SWIPE_LOG_PK primary key (HIST_ID);
+create index PWUST_BADGE_SWIPE_LOG_IDX on PWUST_BADGE_SWIPE_LOG (ORDER_ID, OPER_KEY, STEP_KEY);
+grant select on PWUST_BADGE_SWIPE_LOG to PRATT_READ_ONLY;
+grant select, insert, update, delete on PWUST_BADGE_SWIPE_LOG to SF$CONNECTION_POOL;
+

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Proprietary and Confidential
+    Copyright 1995-2015 iBASEt, Inc.
+    Unpublished-rights reserved under the Copyright Laws of the United States
+    US Government Procurements:
+    Commercial Software licensed with Restricted Rights.
+    Use, reproduction, or disclosure is subject to restrictions set forth in
+    license agreement and purchase contract.
+    iBASEt, Inc. 27442 Portola Parkway, Suite 300, Foothill Ranch, CA 92610
+
+    Solumina software may be subject to United States Dept of Commerce Export Controls.
+    Contact iBASEt for specific Expert Control Classification information.
+
+    Revision History
+  
+    Date      	Who             Description
+    2017-12-06 	R. Thorpe		Added beans for SMRO_TR_T222 LO Notification
+    2018-03-02 	R. Thorpe		Added beans for SMRO_MD_M211 TEM
+    2018-03-19	C. Nguyen		Added beans for SMRO_TR_T226 Modual Swaps
+    2018-03-21  R. Thorpe       EACP Added Beans EACP Interface - moved from planning project
+    2019-05-06	D. Miron		Added beans for SMRO_TR_T301 SM Order
+    2019-06-13  R. Thorpe		Added beans for SMRO_TR_T308 order release
+    2019-08-06	B. Corson       Added beans for SMRO_MD_316 Scrap Codes and Hold Types Groups Interface
+    2019-09-23  B. Polak		Added beans for SMRO_M309
+    01-24-2020 	D.Sibrian		Added Beans for T314 Interface messaging
+    04-02-2020  D. Miron        Added bean for com.pw.solumina.interfaces.dao.impl.M309DaoImplPW
+-->
+ <beans xmlns="http://www.springframework.org/schema/beans" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:jms="http://www.springframework.org/schema/jms" 
+        xmlns:aop="http://www.springframework.org/schema/aop" 
+        xmlns:tx="http://www.springframework.org/schema/tx" 
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+        http://www.springframework.org/schema/jms 
+        http://www.springframework.org/schema/jms/spring-jms-2.1.xsd 
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd" 
+        default-lazy-init="false" 
+        default-dependency-check="none" 
+        default-autowire="no">
+        
+	<!-- ALL BEAN DEFINITIONS THAT DEPENDS ON BEANS IN integrationContext.xml SHOULD GO IN integrationExtensionContext.xml -->
+	
+     <!-- !!! README README README !!! -->
+     <!--  
+     		You should not create beans for Interface classes or Abstract Classes.
+     		Classes that are just data objects do not need to exist in this file either.
+     		
+     		Currently all classes should exist in this file, unnecessary beans have been commented out 
+     		to prevent developers from recreating it and causing confusion. 
+     -->
+     <!-- !!! README README README !!! -->
+	 <!-- PWMRO-Interfaces BEGIN -->
+	 
+     <!-- com.pw.solumina.sfpl.dao -->
+     <bean class="com.pw.solumina.sfpl.dao.ItemDaoPW"></bean>
+     
+     <!-- com.pw.solumina.sysadmin.location.dao -->
+     <bean class="com.pw.solumina.sysadmin.location.dao.LocationDaoPW"></bean>
+     
+      <!-- com.pw.solumina.interfaces.dao -->
+     <bean class="com.pw.solumina.interfaces.dao.LONotificationDaoPW"></bean>
+     <bean class="com.pw.solumina.interfaces.dao.UserCertDaoPW"></bean>
+     <bean class="com.pw.solumina.interfaces.dao.UserDaoPW" /> 
+     <bean class="com.pw.solumina.interfaces.dao.EACPDaoPW" /> 
+     
+     <!-- com.pw.solumina.interfaces.dao.impl -->
+     <bean class="com.pw.solumina.interfaces.dao.impl.M316DaoImplPW" /> 
+     <bean class="com.pw.solumina.interfaces.dao.impl.T301DaoImplPW" /> 
+     <bean class="com.pw.solumina.interfaces.dao.impl.M309DaoImplPW" /> 
+ 
+     <bean class="com.pw.solumina.sfwid.dao.impl.ModuleSwapsDaoImplPW"></bean>
+     
+     <!-- com.pw.solumina.integration.impl -->
+     <bean id="pwmroiDispositionMapper" class ="com.pw.solumina.integration.impl.PWMROIDispositionMapperImpl"></bean>
+     <bean id="pwmroiDispositionEventProcessor" class ="com.pw.solumina.integration.impl.PWMROIDispositionEventProcessorImpl">
+		<property name="pwmroiDispositionMapper" ref="pwmroiDispositionMapper"/>		
+	</bean>
+	<bean id="pwmroiDispositionEventListener" class ="com.pw.solumina.integration.impl.PWMROIDispositionEventListenerImpl">
+		<property name="pwmroiDispositionEventProcessor" ref="pwmroiDispositionEventProcessor"/>		
+	</bean>
+	
+	<bean id="pwmroiDispositionReplyProcessor" parent="nestedTxProxyTemplate"> 
+		<property name="target">
+			<bean class ="com.pw.solumina.integration.impl.PWMROIDispositionReplyProcessorImpl" />
+		</property>		
+	</bean>
+	
+	<bean id="pwmroiDispositionReplyListener" class ="com.pw.solumina.integration.impl.PWMROIDispositionReplyListenerImpl">
+		<property name="pwmroiDispositionReplyProcessor" ref="pwmroiDispositionReplyProcessor"/>		
+	</bean>
+ 
+	 <!-- PWMRO-Interfaces END -->
+
+    <!-- PW_R_EACP_AUTH security Group interface Start -->
+	<bean id="EACPMessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target"> 
+			<bean class="com.pw.solumina.eacp.integration.impl.EACPMessageProcessor"/>	
+		</property>
+	</bean>
+	
+	<bean id="ReceiveEACPListener" parent="messageListenerTemplate"
+		class="com.pw.solumina.eacp.integration.impl.ReceiveEACPListener">
+		<property name="messageProcessor" ref="EACPMessageProcessor" />
+	</bean> 				
+
+	<bean id="ReceiveEACPListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveEACPListener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	 </bean>
+	<!-- PW_R_EACP_AUTH security Group interface end -->
+
+
+	<!-- T319  interface Start -->
+	<bean class="com.pw.solumina.T319.integration.impl.WorkOrderSplitInterfaceDao"></bean>
+	<bean class="com.pw.solumina.T319.integration.impl.SendT319ListenerImpl"></bean>
+	<bean class="com.pw.solumina.T319.integration.impl.ReceiveT319istenerImpl"></bean>
+
+ 	<bean id="WorkOrderSplitInterface" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.pw.solumina.T319.integration.impl.WorkOrderSplitInterface">
+				<property name="connectionFactory" ref="connectionFactory" />						
+			</bean>
+		</property>
+	</bean>	
+
+    <bean id="T319EventProcesserImpl" class="com.pw.solumina.T319.integration.impl.T319EventProcesserImpl">	
+           <property name="license" ref="license"/>
+    </bean>
+    <bean id="T319MapperImplPW" class="com.pw.solumina.T319.integration.impl.T319MapperImplPW">	</bean>		
+    <bean id="ReceiveT319RelyProcesserImplPW" class="com.pw.solumina.T319.integration.impl.ReceiveT319RelyProcesserImplPW"></bean>	
+	<!-- T319  interface End -->
+
+	<!-- T308  interface Start -->
+    <bean class="com.pw.solumina.T308.integration.impl.OrderReleaseInterfaceDao"></bean>
+    <bean class="com.pw.solumina.T308.integration.impl.SendT308ListenerImpl"></bean>
+    <bean class="com.pw.solumina.T308.integration.impl.ReceiveT308ListenerImpl"></bean>
+
+ 	<bean id="RepairOrderT308Interface" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.pw.solumina.T308.integration.impl.RepairOrderT308Interface">
+				<property name="connectionFactory" ref="connectionFactory" />						
+			</bean>
+		</property>
+	</bean>	
+
+    <bean id="T308EventProcessorImpl" class="com.pw.solumina.T308.integration.impl.T308EventProcessorImpl">	
+           <property name="license" ref="license"/>
+    </bean>
+    <bean id="T308MapperImpl" class="com.pw.solumina.T308.integration.impl.T308MapperImpl">	</bean>		
+    <bean id="ReceiveT308ReplyProcessorImpl" class="com.pw.solumina.T308.integration.impl.ReceiveT308ReplyProcessorImpl"></bean>	
+	<!-- T308  interface End -->
+
+    <!-- M221 standard Network interface Start -->
+	<bean id="M221MessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.pw.solumina.T221.integration.impl.M221MessageProcessor"/>
+		</property>
+	</bean>
+	
+	<bean id="ReceiveM221Listener" parent="messageListenerTemplate"
+		class="com.pw.solumina.T221.integration.impl.ReceiveM221Listener">
+		<property name="messageProcessor" ref="M221MessageProcessor" />
+	</bean> 				
+
+	<bean id="ReceiveM221ListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveM221Listener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	 </bean>
+	 
+	 <!-- M221 standard Network interface End -->
+
+	<!-- T222 LO Notification interface Start -->
+	<bean id="T222MessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean class="com.pw.solumina.T222.integration.impl.T222MessageProcessor" />
+		</property>
+	</bean>
+
+	<bean id="ReceiveT222Listener" parent="messageListenerTemplate"
+		class="com.pw.solumina.T222.integration.impl.ReceiveT222Listener">
+		<property name="messageProcessor" ref="T222MessageProcessor" />
+	</bean>
+
+	<bean id="ReceiveT222ListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveT222Listener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	</bean>
+
+	<!-- T222 LO Notification interface End -->
+	
+	<!-- M211 TEM interface Start -->
+	<bean id="M211MessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean class="com.pw.solumina.M211.integration.impl.M211MessageProcessor" />
+		</property>
+	</bean>
+
+	<bean id="ReceiveM211Listener" parent="messageListenerTemplate"
+		class="com.pw.solumina.M211.integration.impl.ReceiveM211Listener">
+		<property name="messageProcessor" ref="M211MessageProcessor" />
+	</bean>
+
+	<bean id="ReceiveM211ListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveM211Listener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	</bean>
+
+	<!-- M211 TEM interface End -->
+
+	
+	<!-- T226 Module Swaps interface Start -->
+	<bean id="T226MessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.pw.solumina.T226.integration.impl.T226MessageProcessor"/>
+		</property>
+	</bean>
+	
+	<bean id="ReceiveT226Listener" parent="messageListenerTemplate"
+		class="com.pw.solumina.T226.integration.impl.ReceiveT226Listener">
+		<property name="messageProcessor" ref="T226MessageProcessor" />
+	</bean> 				
+
+	<bean id="ReceiveT226ListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveT226Listener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	 </bean>
+	 
+	 <!-- T226 Module Swaps interface End -->
+
+	<!-- T301 SM Order Interface Start -->
+	
+	<bean id="T301MessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.pw.solumina.T301.integration.impl.T301MessageProcessor"/>
+		</property>
+	</bean>
+	
+	<bean id="ReceiveT301Listener" parent="messageListenerTemplate"
+		class="com.pw.solumina.T301.integration.impl.ReceiveT301Listener">
+		<property name="messageProcessor" ref="T301MessageProcessor" />
+	</bean> 				
+
+	<bean id="ReceiveT301ListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveT301Listener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	 </bean>
+	 
+	 <!-- T301 SM Order Interface End -->
+    <!-- M316 Scrap Codes and Hold Types Groups Interface Start -->
+    <bean id="M316MessageProcessor" parent="nestedTxProxyTemplate">
+        <property name="target">
+            <bean
+            class="com.pw.solumina.M316.integration.impl.M316MessageProcessor"/>
+        </property>
+    </bean>
+    
+    <bean id="ReceiveM316Listener" parent="messageListenerTemplate"
+        class="com.pw.solumina.M316.integration.impl.ReceiveM316Listener">
+        <property name="messageProcessor" ref="M316MessageProcessor" />
+    </bean>	
+    
+    <bean id="ReceiveM316ListenerRegistry"
+        class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+        destroy-method="cleanUp">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="connection" ref="connection" />
+        <property name="session" ref="session" />
+        <property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+        <property name="eventProperties" ref="eventProperties" />
+        <property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+        <property name="eventPublisher" ref="eventPublisher" />
+        <property name="messageListeners">
+            <list>
+                <ref bean="ReceiveM316Listener" />
+            </list>
+        </property>
+        <property name="transactionManager" ref="jmsTransactionManager" />
+    </bean>
+    <!-- M316 Scrap Codes and Hold Types Groups Interface End -->
+    
+    <!-- M309 Tool Interface Start -->
+	<bean id="M309MessageProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.pw.solumina.M309.integration.impl.M309MessageProcessor"/>
+		</property>
+	</bean>
+	
+	<bean id="ReceiveM309Listener" parent="messageListenerTemplate"
+		class="com.pw.solumina.M309.integration.impl.ReceiveM309Listener">
+		<property name="messageProcessor" ref="M309MessageProcessor" />
+	</bean> 				
+
+	<bean id="ReceiveM309ListenerRegistry"
+		class="com.ibaset.solumina.integration.common.IntegrationServiceRegistry"
+		destroy-method="cleanUp">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="connection" ref="connection" />
+		<property name="session" ref="session" />
+		<property name="messageListenerContainerFactory" ref="messageListenerContainerFactory" />
+		<property name="eventProperties" ref="eventProperties" />
+		<property name="serviceDefinitionDao" ref="serviceDefinitionDao" />
+		<property name="eventPublisher" ref="eventPublisher" />
+		<property name="messageListeners">
+			<list>
+				<ref bean="ReceiveM309Listener" />
+			</list>
+		</property>
+		<property name="transactionManager" ref="jmsTransactionManager" />
+	 </bean>
+	 <!-- M309 Tool Interface End -->
+    
+	<!--  com.pw.solumina.eacpWebService --> 
+    <bean class="com.pw.solumina.eacpWebService.Authinfo" /> 
+  	<bean class="com.pw.solumina.eacpWebService.EACP_Service_TestLocator" /> 
+  	<bean class="com.pw.solumina.eacpWebService.EACP_Service_TestSoapProxy" /> 
+  	<bean class="com.pw.solumina.eacpWebService.EACP_Service_TestSoapStub" /> 
+ 	<!--  com.pw.solumina.eacpWebService  --> 
+	
+	 <!-- T314 Messaging -->
+	 <!-- com.pw.solumina.sfwid.application.impl -->
+     <bean id="pwSerials" class = "com.pw.solumina.sfwid.application.impl.PWMROISerialImpl"></bean>
+     
+     
+     <bean id="pwZcomSalesOrderDao" 
+     			class ="com.pw.solumina.sfwid.dao.impl.PWMROZcomSalesOrdersDaoImpl">
+     </bean>
+     <!-- T314 Messaging End -->
+    
+     <!-- com.pw.solumina.sfwid.dao.impl -->
+     <bean id="pwSerialsDao" class ="com.pw.solumina.sfwid.dao.impl.PWMROISerialDaoImpl"></bean>
+     	
+	
+	<bean id="bisAdminService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.ibaset.solumina.admin.bis.BISAdminServiceImpl">
+				<property name="dao" ref="hibernateDAO" />
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="injectInboundJMSMessage"></prop>
+				<prop key="injectInboundWSMessage"></prop>
+			    <prop key="*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+</beans>

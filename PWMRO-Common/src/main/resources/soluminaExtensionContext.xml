@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Proprietary and Confidential
+    Copyright 1995-2015 iBASEt, Inc.
+    Unpublished-rights reserved under the Copyright Laws of the United States
+    US Government Procurements:
+    Commercial Software licensed with Restricted Rights.
+    Use, reproduction, or disclosure is subject to restrictions set forth in
+    license agreement and purchase contract.
+    iBASEt, Inc. 27442 Portola Parkway, Suite 300, Foothill Ranch, CA 92610
+
+    Solumina software may be subject to United States Dept of Commerce Export Controls.
+    Contact iBASEt for specific Expert Control Classification information.
+    
+    File: PWMRO-Common/src/main/resources/soluminaExtensionContext.xml 
+	Created: 2017 
+	Author: iBASEt 
+	
+
+	Revision History 
+	
+	Date       Who            	Description 
+	********** ***************	*********************************************************************** 
+	2017-09-29 R. Cannon		SMRO_USR_201 (LDAP Authentication - LoginDaoPW)
+	2020-01-24 D. Sibrian		Updated for T314 Interface messaging
+	2021-08-24 J DeNinno        Defect 1906
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+    http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-2.1.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	default-lazy-init="false" default-dependency-check="none"
+	default-autowire="no">
+	
+	<!-- ALL BEAN DEFINITIONS THAT DEPENDS ON BEANS IN integrationContext.xml SHOULD GO IN integrationExtensionContext.xml -->
+	
+     <!-- !!! README README README !!! -->
+     <!--  
+     		You should not create beans for Interface classes or Abstract Classes.
+     		Classes that are just data objects do not need to exist in this file either.
+     		
+     		Currently all classes should exist in this file, unnecessary beans have been commented out 
+     		to prevent developers from recreating it and causing confusion. 
+     -->
+     <!-- !!! README README README !!! -->
+	
+	 <!-- PWMRO-Common BEGIN -->
+	 
+	 <!-- com.pw.common.dao -->
+	 <bean class="com.pw.common.dao.CommonDaoPW"></bean>
+	 
+	 <!-- com.pw.common.utils -->
+	 <bean class="com.pw.common.utils.SplitUtilsPW"></bean>
+	 <bean class="com.pw.common.utils.BaseDataAccess"></bean>
+	 <bean class="com.pw.common.utils.CommonUtilsPW"></bean>
+	 <bean class="com.pw.common.utils.DateUtils"></bean>
+	 <bean class="com.pw.common.utils.LdapBean"></bean>
+	 <bean class="com.pw.common.utils.StringArrayDataAccess"></bean>
+	 <bean class="com.pw.common.utils.StringUtil"></bean>
+	 <bean class="com.pw.common.utils.Utils"></bean>
+	 <bean id="pwAuthority" class ="com.pw.solumina.authority.application.impl.AuthorityImpl"></bean>
+	 <bean id="pwAuthorityDao" class ="com.pw.solumina.authority.application.dao.impl.AuthorityDaoImpl"></bean>
+     
+
+	 <!-- com.pw.solumina.sfcore.application -->
+	 <bean class="com.pw.solumina.sfcore.application.impl.AssembleTextIUtilImpl"></bean>
+	 
+	 <!-- com.pw.solumina.sffnd.application -->
+	 <bean class="com.pw.solumina.sffnd.application.CertificationPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.application.EngineModelPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.application.SlideImplPW"></bean>    <!-- Defect 1906 -->
+	          
+	 <!-- com.pw.solumina.sffnd.dao -->
+	 <bean class="com.pw.solumina.sffnd.dao.CertificationDaoPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.dao.WorkFlowDaoPW"></bean>
+	 <bean class="com.pw.solumina.sffnd.dao.EngineModelDaoPW"></bean>
+
+	 <!-- com.pw.solumina.sfcore.dao -->
+	 <bean class="com.pw.solumina.sfcore.dao.LoginDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfcore.dao.AssembleTextDaoPW"></bean>
+
+     <!-- com.pw.solumina.sfwid.dao.impl -->
+     <bean class="com.pw.solumina.sfwid.dao.impl.OrderOperConfirmationDao"></bean>
+     <bean class="com.pw.solumina.sfwid.dao.impl.SlideDaoPW"></bean>  <!-- Defect 1906 -->
+
+     <!-- com.pw.solumina.sfwid.impl -->
+     <bean class="com.pw.solumina.sfwid.impl.OrderOperConfirmationCheck"></bean> 
+     <bean class="com.pw.solumina.sfwid.dao.impl.RepairWorkOrderT308Dao"></bean>
+
+	 <bean id="soluminaTransactionTracker" class="org.springframework.jdbc.datasource.SoluminaTransactionTracker" destroy-method="cleanUp">
+		<!-- timeout in seconds -->
+		<property name="timeout" value="600" />
+		<property name="enabled" value="true" />
+		<property name="clientKeepAliveTimeout" value="18000" />
+	</bean>
+
+
+	 <!-- PWMRO-Common END -->
+
+</beans>

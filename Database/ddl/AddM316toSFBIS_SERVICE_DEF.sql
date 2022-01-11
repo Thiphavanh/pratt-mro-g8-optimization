@@ -1,0 +1,2 @@
+-- Use procedure SFBIS_CREATE_SERVICE_ENTRY to add entries to SFBIS_SERVICE_DEF table !!!!!!!!!!
+EXEC sfbis_create_service_entry(vi_service_name => 'PW_R_M316_CAT_CODES', vi_direction_indicator => 'INBOUND',   vi_enabled_flag => 'N', vi_reply_enabled_flag => 'N',vi_logging_flag => 'Y',vi_queue_name => 'com.pw.receive.request.m316code', vi_reply_queue_name => 'com.pw.receive.reply.m316code',vi_concurrent_consumers => 1,vi_solumina_ref_table_name => 'PWUST_GENERAL_CATALOG_LOOKUP', vi_description => 'Receive Scrap / Hold Types');

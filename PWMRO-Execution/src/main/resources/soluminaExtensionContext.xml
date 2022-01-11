@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Proprietary and Confidential
+    Copyright 1995-2015 iBASEt, Inc.
+    Unpublished-rights reserved under the Copyright Laws of the United States
+    US Government Procurements:
+    Commercial Software licensed with Restricted Rights.
+    Use, reproduction, or disclosure is subject to restrictions set forth in
+    license agreement and purchase contract.
+    iBASEt, Inc. 27442 Portola Parkway, Suite 300, Foothill Ranch, CA 92610
+
+    Solumina software may be subject to United States Dept of Commerce Export Controls.
+    Contact iBASEt for specific Expert Control Classification information.
+
+    Revision History
+
+    Date        Who          	Description
+    **********  *************** ***********************************************************************
+    2018-01-09	R. Thorpe	    SMRO_WOE_202 Added beans for sfwid.application.BuyoffPW and sfwid.dao.BuyoffDaoPW
+    2019-08-08  T. Phan         Defect 468. Added beans for sfwid.application.impl.AlterationImplPW
+    2019-02-01  R. Thorpe       SMRO_WOE_310 Added bean for sfwid.application.BarcodedTravelerPW
+    2019-02-27  B. Corson       SMRO_WOE_306 Added beans for sfwid.application.OperationDataCollectionPW, sfwid.dao.OperationDataCollectionDaoPW
+                                sfwid.application.impl.DataCollectionPW, and sfwid.dao.DataCollectionDaoPW.
+    2019-09-13  R. Thorpe       SMRO_WOE_310 Added bean for sfwid.application.BarcodedTravelerDaoPW     
+    2019-08-09  R. Thorpe       SMRO_RPT_306 Added beans for sfwid.application.ROMHistoryReportPW and sfwid.dao.ROMHistoryReportDaoPW     
+	2019-12-11  D.Sibrian		Added beans for Delivery Cockpit Installation Update
+	01-24-2020 	D.Sibrian		Added beans for T314 Interface messaging
+	2020-11-13	S. Edgerly		SMRO_WOE_308 - Supplemental Orders, added bean for OperationImplPW
+	2020-12-02	S. Edgerly		SMRO_WOE_308 - Defect 1819 - Supplemental Orders
+	2020-12-07	S. Edgerly		SMRO_WOE_206 - Defect 941 - SCR001: Split Data collections into two different privs.
+	2021-06-16  J DeNinno       Defect 1906 
+	-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:jms="http://www.springframework.org/schema/jms"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+       http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-2.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	   default-lazy-init="false" default-dependency-check="none"
+	   default-autowire="no">
+	
+	<!-- ALL BEAN DEFINITIONS THAT DEPENDS ON BEANS IN integrationContext.xml SHOULD GO IN integrationExtensionContext.xml -->
+	
+     <!-- !!! README README README !!! -->
+     <!--  
+     		You should not create beans for Interface classes or Abstract Classes.
+     		Classes that are just data objects do not need to exist in this file either.
+     		
+     		Currently all classes should exist in this file, unnecessary beans have been commented out 
+     		to prevent developers from recreating it and causing confusion. 
+     -->
+     <!-- !!! README README README !!! -->
+	
+	 <!-- PWMRO-Execution BEGIN -->
+
+	 <!-- com.pw.solumina.sfwid.application -->
+     <bean class="com.pw.solumina.sfwid.application.BuyoffPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.OperationPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.OrderPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.DeliveryPackagePW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.BarcodedTravelerPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.OperationDataCollectionPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.ROMHistoryReportPW"></bean>   
+     <bean class="com.ibaset.solumina.sfwid.application.impl.OrderMroRepairSplitPW"></bean>
+     <bean class="com.ibaset.solumina.sfwid.dao.impl.OrderMroRepairSplitDao"></bean>
+     <bean class="com.ibaset.solumina.sfwid.dao.impl.RollUpDaoImplPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.StepPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.DataCollectionPW"></bean>
+     
+     
+     <!-- com.pw.solumina.sfwid.application.impl -->
+     <bean class="com.pw.solumina.sfwid.application.impl.SfwidOrderImplPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.impl.AlterationImplPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.impl.SerialOperationImplPW"></bean>
+     <bean class="com.pw.solumina.sfwid.application.impl.OperationImplPW"></bean>
+     
+     <!-- com.pw.solumina.sfpl.application.impl -->
+     <bean class="com.pw.solumina.sfpl.application.impl.OperationImplPW"></bean>
+     <bean class="com.pw.solumina.sfpl.application.impl.FileImplPW"></bean>
+     
+     
+	 <!-- com.pw.solumina.sfwid.dao -->
+	 <bean class="com.pw.solumina.sfwid.dao.OrderAssembleTextDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfwid.dao.BuyoffDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfwid.dao.PartDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfwid.dao.UserDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfwid.dao.OperationDaoPW"></bean>
+	 <bean class="com.pw.solumina.sfwid.dao.OrderDaoPW"></bean>
+     <bean class="com.pw.solumina.sfwid.dao.WorkOrderDaoPW"></bean>	 
+     <bean class="com.pw.solumina.sfwid.dao.OperationDataCollectionDaoPW"></bean>
+     <bean class="com.pw.solumina.sfwid.dao.DataCollectionDaoPW"></bean>
+     <bean class="com.pw.solumina.sfwid.dao.BarcodedTravelerDaoPW"></bean>
+     <bean class="com.pw.solumina.sfwid.dao.ROMHistoryReportDaoPW"></bean>	 
+     <bean class="com.pw.solumina.sfor.dao.AuditSubjectDaoPW"></bean>
+     <bean class="com.pw.solumina.sfwid.dao.StepDaoPW"></bean>
+     
+     <!-- com.pw.solumina.solumina.sfrpt.impl -->
+     <bean class="com.pw.solumina.solumina.sfrpt.impl.ReportImplPW"></bean>
+     <bean class="com.pw.solumina.solumina.sfrpt.dao.impl.ReportDaoImplPW"></bean>     
+     
+     <bean id="ReleaseOrderAndCommitPW"
+              class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+              <property name="transactionManager" ref="transactionManager" />
+              <property name="transactionAttributes">
+                      <props>
+                      		<prop key="releaseOrder">PROPAGATION_REQUIRES_NEW</prop>   
+                      </props>
+              </property>
+              <property name="target">
+                      <bean class="com.pw.solumina.sfwid.application.ReleaseOrderAndCommitPW"> </bean>
+              </property>
+      </bean>      
+     	 
+    <!-- Cockpit Delivery Installation Beans -->
+    <bean id="pwZcomSalesOrder" class ="com.pw.solumina.sfwid.application.impl.PWMROIZcomSalesOrderImpl"></bean>
+	<bean id="pwZcomSalesOrderDao" class ="com.pw.solumina.sfwid.dao.impl.PWMROZcomSalesOrdersDaoImpl"></bean>
+	<bean id="pwSerials" class = "com.pw.solumina.sfwid.application.impl.PWMROISerialImpl"></bean>
+	<bean id="pwSerialsDao" class ="com.pw.solumina.sfwid.dao.impl.PWMROISerialDaoImpl"></bean>
+      
+     	 
+	 <!-- PWMRO-Execution END -->
+
+</beans>

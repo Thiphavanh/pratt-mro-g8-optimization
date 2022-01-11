@@ -1,0 +1,1 @@
+select * from SFOR_SFPL_PLAN_SUBJECT t where plan_id not in (select plan_id from pwust_SFOR_SFPL_PLAN_SUBJECT b where t.plan_id = b.plan_id and t.subject_no = b.subject_no and t.subject_rev = b.subject_rev)

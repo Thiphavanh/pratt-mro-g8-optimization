@@ -1,0 +1,1 @@
+update pwust_sfwid_order_desc t set t.pw_alt_count = (select t1.ALT_COUNT from sfwid_order_desc t1 where t1.order_id = t.order_id );

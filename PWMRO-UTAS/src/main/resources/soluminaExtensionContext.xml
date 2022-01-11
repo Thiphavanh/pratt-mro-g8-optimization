@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Proprietary and Confidential
+    Copyright 1995-2015 iBASEt, Inc.
+    Unpublished-rights reserved under the Copyright Laws of the United States
+    US Government Procurements:
+    Commercial Software licensed with Restricted Rights.
+    Use, reproduction, or disclosure is subject to restrictions set forth in
+    license agreement and purchase contract.
+    iBASEt, Inc. 27442 Portola Parkway, Suite 300, Foothill Ranch, CA 92610
+
+    Solumina software may be subject to United States Dept of Commerce Export Controls.
+    Contact iBASEt for specific Expert Control Classification information.
+
+    Revision History
+
+    Date        Who          	Description
+    **********  *************** ***********************************************************************
+    2018-11-14	D. Miron	    Initial Release for UTAS project
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:jms="http://www.springframework.org/schema/jms"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+       http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-2.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	   default-lazy-init="false" default-dependency-check="none"
+	   default-autowire="no">
+	
+	<!-- ALL BEAN DEFINITIONS THAT DEPENDS ON BEANS IN integrationContext.xml SHOULD GO IN integrationExtensionContext.xml -->
+	
+     <!-- !!! README README README !!! -->
+     <!--  
+     		You should not create beans for Interface classes or Abstract Classes.
+     		Classes that are just data objects do not need to exist in this file either.
+     		
+     		Currently all classes should exist in this file, unnecessary beans have been commented out 
+     		to prevent developers from recreating it and causing confusion. 
+     -->
+
+	 <!-- UTAS Beans -->
+	 	 
+	 <!-- UTAS-Common Beans -->
+	 
+	 <bean id="utasSecurityGroupDao" class="com.utas.solumina.sffnd.dao.impl.UtasSecurityGroupDaoImplExt"></bean>
+	 	 
+	 <!-- UTAS-Execution Beans -->
+	 
+	 <bean id="utasWidOrder" class ="com.utas.solumina.sfwid.application.impl.UtasOrderImpl"></bean>
+
+	 <bean id="utasWidOrderDao" class ="com.utas.solumina.sfwid.dao.impl.UtasOrderDaoImpl"></bean>
+	 
+	 <!-- UTAS-PaarInterface Beans -->
+	 
+	<bean id="paarMapper" class="com.utas.solumina.paar.integration.impl.PaarMapperImpl"/>
+	    	
+	<bean id="paarRequestEventProcessor" class="com.utas.solumina.paar.integration.impl.PaarRequestEventProcessorImpl" >
+		<property name="paarMapper" ref="paarMapper" />
+		<property name="license" ref="license" />
+	</bean>
+	
+	<bean id="paarRequestEventListener" class="com.utas.solumina.paar.integration.impl.PaarRequestEventListenerImpl" >
+		<property name="paarRequestEventProcessor" ref="paarRequestEventProcessor" />
+	</bean>
+	
+	
+    <bean id="paarAsmblTxt" class="com.utas.solumina.paar.application.impl.AssembleTextImpl">
+		<property name="paarAsmblTxtDao" ref="paarAsmblTxtDao" />
+	</bean>
+	
+	<bean id="paarAsmblTxtDao" class="com.utas.solumina.paar.application.dao.AssembleTextDaoImpl"/>
+	
+	
+	<bean id="paarRequestDao" class="com.utas.solumina.paar.dao.impl.PaarRequestDaoImpl">		
+	</bean>
+		
+	<bean id="paarRequestApplication" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.utas.solumina.paar.integration.impl.PaarRequestApplicationImpl">
+				<property name="paarRequestDao" ref="paarRequestDao"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="paarRequestReplyProcessor" parent="nestedTxProxyTemplate">
+		<property name="target">
+			<bean class="com.utas.solumina.paar.integration.impl.PaarRequestReplyProcessorImpl">
+				<property name="paarMapper" ref="paarMapper" />
+				<property name="paarRequestApplication" ref="paarRequestApplication" />
+				<property name="paarRequestDao" ref="paarRequestDao"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="paarRequestReplyListener" class="com.utas.solumina.paar.integration.impl.PaarRequestReplyListenerImpl">
+		<property name="paarRequestReplyProcessor" ref="paarRequestReplyProcessor" />
+	</bean>
+	
+	<!-- Paar Request Listener Beans:: Start -->
+	 <bean id="paarRequestExternalListener" parent="messageListenerTemplate"
+    	 class="com.utas.solumina.paar.integration.external.impl.UTASPaarRequestExternalListenerImpl" >    	
+    </bean>
+	
+	
+	<bean id="paarRequestExternalProcessorImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.paar.integration.external.impl.UTASPaarRequestExternalProcessorImpl">
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="paarRequestExternalMapperImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.paar.integration.external.impl.UTASPaarRequestExternalMapperImpl">
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="paarRequestExternalApplicationImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.paar.integration.external.impl.UTASPaarRequestExternalApplicationImpl">
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- Paar Request Listener Beans:: End -->
+	
+	
+	<!-- Paar Reply Send Beans :: Start -->
+	
+	 <bean id="paarReplyExternalEventListener" class="com.utas.solumina.paar.integration.external.impl.UTASPaarReplyExternalEventListenerImpl" >
+	 <property name="paarReplyExternalEventProcessor" ref="paarReplyExtEventProcessor" />    	
+    </bean>
+    <bean id="paarReplyExtEventProcessor" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.paar.integration.external.impl.UTASPaarReplyExternalEventProcessorImpl">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="paarReplyExtEventMapper" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.paar.integration.external.impl.UTASPaarReplyMapperImpl">
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- Paar Reply Send Beans:: End -->
+	
+	<bean id="paarImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.paar.application.impl.UTASPaarRequestImpl">
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="utasOrderDaoExt" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.sfwid.application.impl.UtasOrderImplExt">
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="utasOrderDao" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.utas.solumina.sfwid.application.dao.impl.UtasOrderDaoImpl">
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- PAAR WO Request Send : Start -->
+	<bean id="paarWORequestEventListener" class="com.utas.solumina.paar.integration.impl.PaarWORequestEventListenerImpl" >
+		<property name="paarRequestEventProcessor" ref="paarRequestEventProcessor" />
+	</bean>
+	
+	<!-- PAAR WO Request Send : End -->
+	
+	<!-- UTAS-Planning Beans -->	
+	
+	<bean id="utasPlanImpl" class="com.utas.solumina.sfpl.application.impl.UtasPlanImpl"></bean>
+
+	<bean id="utasOperationDao"  class = "com.utas.solumina.sfpl.dao.impl.UtasOperationDaoImpl"></bean>
+
+	<bean id="utasPlanDaoImpl" class ="com.utas.solumina.sfpl.dao.impl.UtasPlanDaoImpl"></bean>	
+	
+	
+	<!-- PWMRO-UTAS END -->
+		 
+</beans>

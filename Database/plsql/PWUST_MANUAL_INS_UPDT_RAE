@@ -1,0 +1,118 @@
+CREATE OR REPLACE PROCEDURE PWUST_MANUAL_INS_UPDT_DEL_RAE AS
+  --
+  V_CON        VARCHAR2(40);
+  --
+  V_ERROR_MSG VARCHAR2(2000);
+BEGIN
+  --
+  SFCORE_LOGIN_USER(USER, '', 'FAT', '127.0.0.1', '', '', 'N', V_CON);
+  SFCORE_SET_FLAG('CLIENT_SESSION');
+  --
+ 
+  -- for records that exist in custom table AND OOB table
+  -- update the description
+  FOR REC IN (SELECT C.ENGINE_TYPE,
+                     C.MODEL,
+                     C.PROGRAM_MODEL_DESC
+                FROM PWUST_ENGINE_TYPE_MODEL_DEF C, SFFND_MODEL_DEF O
+               WHERE O.MODEL = C.MODEL) 
+  LOOP
+  
+    BEGIN
+      --
+      UPDATE SFFND_MODEL_DEF M
+         SET M.MODEL_DESC = REC.PROGRAM_MODEL_DESC,
+             M.PROGRAM = REC.ENGINE_TYPE,
+             M.LAST_ACTION = 'UPDATE',
+             M.UPDT_USERID = 'SFMFG',
+             M.TIME_STAMP = SYSDATE
+       WHERE M.MODEL = REC.MODEL; 
+
+    EXCEPTION
+      WHEN OTHERS THEN
+        V_ERROR_MSG := ('DATA FIX (UPDATE)FOR ENGINE MODEL TABLES FOR MODEL-' ||REC.MODEL|| ' ENGINE TYPE-' ||
+                       REC.ENGINE_TYPE || ' . SQLERRM=' || SQLERRM);
+      
+        PWUST_ERROR_LOG_INS(NULL /*LOAD_ID*/,
+                            'UPDATE TYPE/MODEL INFO' /*TRANS_TYPE*/,
+                            NULL /*RETURN_CODE*/,
+                            NULL /*MSG_ID*/,
+                            NULL /*KEY1*/,
+                            NULL /* KEY2*/,
+                            NULL /*KEY3*/,
+                            V_ERROR_MSG /*MSG_TEXT*/,
+                            NULL /*KEY4*/,
+                            NULL /*KEY5*/,
+                            NULL /*KEY6*/,
+                            NULL /*KEY7*/,
+                            NULL /*KEY8*/,
+                            NULL /*KEY9*/,
+                            NULL /*KEY10*/,
+                            NULL /*KEY11*/,
+                            NULL /*KEY12*/,
+                            NULL /*KEY13*/,
+                            NULL /*KEY14*/,
+                            NULL /*KEY15*/,
+                            NULL /*KEY16*/,
+                            NULL /*KEY17*/,
+                            NULL /*KEY18*/,
+                            NULL /*KEY19*/,
+                            NULL /*KEY20*/);
+    END;
+
+  END LOOP;
+ 
+
+  -- for records that exist in custom table and  NOT in the OOB table
+  -- insert into the OOB table
+  FOR REC2 IN (SELECT C.ENGINE_TYPE, C.MODEL, C.PROGRAM_MODEL_DESC
+                 FROM PWUST_ENGINE_TYPE_MODEL_DEF C
+                WHERE NOT EXISTS (SELECT O.PROGRAM, O.MODEL
+                         FROM SFFND_MODEL_DEF O
+                        WHERE O.MODEL = C.MODEL)) LOOP
+  
+    --- if it does not exist in OOB add it
+    BEGIN
+    
+      INSERT INTO SFFND_MODEL_DEF M
+        (MODEL, PROGRAM, MODEL_DESC)
+      VALUES
+        (REC2.MODEL, REC2.ENGINE_TYPE, REC2.PROGRAM_MODEL_DESC);
+    
+    EXCEPTION
+      WHEN OTHERS THEN
+        V_ERROR_MSG := ('DATA FIX (INSERT)FOR ENGINE MODEL TABLES FOR MODEL-' ||REC2.MODEL|| ' ENGINE TYPE-' ||
+                       REC2.ENGINE_TYPE || ' . SQLERRM=' || SQLERRM);
+      
+        PWUST_ERROR_LOG_INS(NULL /*LOAD_ID*/,
+                            'INSERT TYPE/MODEL INFO' /*TRANS_TYPE*/,
+                            NULL /*RETURN_CODE*/,
+                            NULL /*MSG_ID*/,
+                            NULL /*KEY1*/,
+                            NULL /* KEY2*/,
+                            NULL /*KEY3*/,
+                            V_ERROR_MSG /*MSG_TEXT*/,
+                            NULL /*KEY4*/,
+                            NULL /*KEY5*/,
+                            NULL /*KEY6*/,
+                            NULL /*KEY7*/,
+                            NULL /*KEY8*/,
+                            NULL /*KEY9*/,
+                            NULL /*KEY10*/,
+                            NULL /*KEY11*/,
+                            NULL /*KEY12*/,
+                            NULL /*KEY13*/,
+                            NULL /*KEY14*/,
+                            NULL /*KEY15*/,
+                            NULL /*KEY16*/,
+                            NULL /*KEY17*/,
+                            NULL /*KEY18*/,
+                            NULL /*KEY19*/,
+                            NULL /*KEY20*/);
+    END;
+
+  END LOOP;
+ COMMIT;
+END PWUST_MANUAL_INS_UPDT_DEL_RAE;
+/
+
